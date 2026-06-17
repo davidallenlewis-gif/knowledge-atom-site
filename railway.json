@@ -1,7 +1,7 @@
 {
   "build": { "builder": "NIXPACKS" },
   "deploy": {
-    "startCommand": "node ./dist/server/entry.mjs",
+    "startCommand": "HOST=0.0.0.0 node ./dist/server/entry.mjs",
     "healthcheckPath": "/health",
     "restartPolicyType": "ON_FAILURE"
   }
