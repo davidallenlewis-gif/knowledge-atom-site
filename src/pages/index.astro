@@ -1,10 +1,236 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import GoDeeperDoor from '../components/GoDeeperDoor.astro';
+import '../styles/l0.css';
 ---
 <BaseLayout title="The Knowledge Atom" layer="L0">
-  <main style="padding: 120px 28px; font-family: var(--mono); color: var(--txt); background: var(--paper); min-height: 100vh;">
-    <p style="font-size: 12px; letter-spacing: .14em; text-transform: uppercase; opacity: .5;">Knowledge Atom · Site scaffold</p>
-    <h1 style="font-family: var(--serif); font-size: 48px; margin-top: 16px;">The Knowledge Atom</h1>
-    <p style="margin-top: 16px; opacity: .6;">L0 explainer coming in Task 3.</p>
-  </main>
+
+  <!-- ACT 1 — THE LEVERAGE -->
+  <header class="hero on-ink" id="a1">
+    <div class="grid-bg"></div>
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Act 01 — The Leverage</div>
+        <h1>We own roughly <em>10,000 courses.</em> Half have never been opened.</h1>
+        <p class="sub">A library that large isn't an asset — it's a liability that decays quietly. Every course is a sealed box: knowledge trapped inside one format, impossible to reuse, expensive to update, invisible to the people who need an answer right now.</p>
+        <div class="stat">
+          <div class="n">~1 in 10</div>
+          <div class="t">hours of corporate training ever changes what someone actually does on the job.</div>
+          <div class="src mono">— Training-transfer research (Baldwin &amp; Ford)</div>
+        </div>
+      </div>
+      <div>
+        <!-- React island mount point for Task 4 — shows end-state visually for now -->
+        <div class="stage" id="collapse-radiate-mount">
+          <div class="course-stack" style="opacity:0"></div>
+          <div class="nucleus"><span>knowledge<br>·core·</span></div>
+          <div class="electron e1" style="left:8%;top:14%">Q&amp;A</div>
+          <div class="electron e2" style="right:6%;top:24%">scenario</div>
+          <div class="electron e3" style="left:12%;bottom:14%">job aid</div>
+          <div class="electron e4" style="right:10%;bottom:20%">micro</div>
+        </div>
+        <p class="stage-label">ONE 30-MIN COURSE → ONE ATOM → MANY FORMS</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ACT 2 — THE ATOM -->
+  <section class="act" id="a2">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      <div class="act-no mono">Act 02 — The Atom</div>
+      <h2 class="head">The atom <em style="font-style:italic;font-family:var(--serif)">is</em> the knowledge — not a box that holds it.</h2>
+      <p class="lede">We break that 30-minute course into its smallest teachable truths. Each becomes an atom: one verified idea, written once as canonical text. Every video, quiz, and job aid is a <em style="font-style:italic">view</em> derived from it — so when the truth changes, every view updates from one place.</p>
+
+      <div class="split">
+        <!-- Specimen card -->
+        <aside class="specimen">
+          <div class="tag">Specimen · atm_0191</div>
+          <h3>Severity Classification for Tier-1 Escalation</h3>
+          <div class="meta mono">
+            <span>ver <b>v4</b></span>
+            <span>status <b>Verified</b></span>
+            <span>hash <b>9f2a·c41e</b></span>
+            <span>skill <b>Apply</b></span>
+          </div>
+          <div class="ktext">
+            <span class="lbl">knowledge_text · canonical</span>
+            Escalation severity is set by what a fix <b>requires</b> — authority, system access, or expertise the rep doesn't hold — not by how upset the caller is. Active harm (an unauthorized transfer draining funds) escalates now; a single disputed charge inside the window is handled at Tier&nbsp;1. Emotion is a service cue, not a severity signal.
+          </div>
+        </aside>
+
+        <!-- Cluster accordions -->
+        <div class="clusters">
+          <p style="color:var(--txt-dim);font-size:14px;margin-bottom:4px">Underneath, every atom carries 19 fields. For a decision-maker they group into four plain questions. <b style="color:var(--txt)">Open one.</b></p>
+
+          <details class="cluster" open>
+            <summary>
+              <span class="cidx">01</span>
+              <span class="ctitle">What it teaches<span class="csub">The verified idea, in its own words</span></span>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
+            </summary>
+            <div class="cfields">
+              <div class="field"><div class="fk">learning_objective</div><div class="fv">Route any issue to the right tier without over-escalating.</div></div>
+              <div class="field"><div class="fk">key_concept</div><div class="fv">The deciding question: "does fixing this need authority I lack?"</div></div>
+              <div class="field"><div class="fk">misconception</div><div class="fv">"An upset customer means high severity." / "When in doubt, escalate."</div></div>
+              <div class="field"><div class="fk">tiers</div><div class="fv">Critical · High · Standard · Low — four, mutually exclusive.</div></div>
+            </div>
+            <div class="cnote">This is the only field a human must truly own. Everything else can be derived from it.</div>
+          </details>
+
+          <details class="cluster">
+            <summary>
+              <span class="cidx">02</span>
+              <span class="ctitle">How we know it's right<span class="csub">Versioned, sourced, auditable</span></span>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
+            </summary>
+            <div class="cfields">
+              <div class="field"><div class="fk">version / hash</div><div class="fv">v4 · 9f2a·c41e — a fingerprint of the exact knowledge.</div></div>
+              <div class="field"><div class="fk">source_citation</div><div class="fv">CFPB Regulation E (electronic-fund-transfer disputes).</div></div>
+              <div class="field"><div class="fk">status</div><div class="fv">SME-verified, published.</div></div>
+              <div class="field"><div class="fk">reassessment</div><div class="fv">Flags every derived view stale the moment the text changes.</div></div>
+            </div>
+            <div class="cnote">Change the knowledge once; the hash moves; every view that drifted is caught automatically.</div>
+          </details>
+
+          <details class="cluster">
+            <summary>
+              <span class="cidx">03</span>
+              <span class="ctitle">What capability it builds<span class="csub">Tied to a real, measurable skill</span></span>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
+            </summary>
+            <div class="cfields">
+              <div class="field"><div class="fk">skill</div><div class="fv">Escalation Severity Judgment.</div></div>
+              <div class="field"><div class="fk">target_proficiency</div><div class="fv">Apply — classify live, unaided.</div></div>
+              <div class="field"><div class="fk">assessment</div><div class="fv">Judge unlabeled cases, not recall of the tiers.</div></div>
+              <div class="field"><div class="fk">mastery_threshold</div><div class="fv">90% correct routing across mixed scenarios.</div></div>
+            </div>
+            <div class="cnote">An atom isn't "done" because it was watched — it's done when the behavior shows up.</div>
+          </details>
+
+          <details class="cluster">
+            <summary>
+              <span class="cidx">04</span>
+              <span class="ctitle">How it reaches people<span class="csub">Many forms, one source</span></span>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
+            </summary>
+            <div class="cfields">
+              <div class="field"><div class="fk">presentation_objects</div><div class="fv">Q&amp;A answer · scenario · job aid · microlearning.</div></div>
+              <div class="field"><div class="fk">prerequisite</div><div class="fv">Account types &amp; access levels.</div></div>
+              <div class="field"><div class="fk">role_relevance</div><div class="fv">Tier-1 contact-center representative.</div></div>
+              <div class="field"><div class="fk">difficulty</div><div class="fv">Foundational.</div></div>
+            </div>
+            <div class="cnote">These are views, not copies. Act 04 shows the atom render itself into each one →</div>
+          </details>
+
+          <GoDeeperDoor href="/anatomy" layer="L1" label="Explore all 19 fields in the Anatomy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACT 3 — THE DUET -->
+  <section class="act act-3" id="a3">
+    <div class="wrap">
+      <div class="act-no mono">Act 03 — The Duet</div>
+      <h2 class="head">An agent does the production. A person does the judgment.</h2>
+      <p class="lede">This isn't automation replacing instructional designers — it's augmentation. The builder agent drafts, decomposes, and derives at machine speed. The human contributes the part no model can: what's actually true, what edge cases matter, and what behavior we're trying to change.</p>
+
+      <!-- React island mount point for Task 4 — static version shown for now -->
+      <div id="who-does-what-mount" class="duet-static">
+        <div class="duet-header">
+          <div class="duet-tab active">▸ AI — the production (~60%)</div>
+          <div class="duet-tab">▸ Human — the judgment (~40%)</div>
+        </div>
+        <div class="duet-bar">
+          <div class="b-ai"></div>
+          <div class="b-hu"></div>
+        </div>
+        <div class="duet-body">
+          <div class="duet-role">AI · the production</div>
+          <h4>Speed, coverage, and first drafts</h4>
+          <ul>
+            <li>Decomposes a 30-min course into candidate atoms</li>
+            <li>Drafts the canonical knowledge_text for review</li>
+            <li>Derives every presentation form — Q&amp;A, scenario, job aid, micro</li>
+            <li>Re-generates all forms when the atom changes</li>
+            <li>Flags stale or contradictory content across the catalog</li>
+          </ul>
+        </div>
+        <div class="duet-foot">Roughly 60% of the work — the part that used to make new content economically impossible.</div>
+      </div>
+
+      <div class="augment-stat">
+        <div class="n">~3×</div>
+        <div class="t">improvement in knowledge-work output when humans and AI systems collaborate vs. either working alone.</div>
+        <div class="src mono">— Brynjolfsson, Rock &amp; Syverson (MIT)</div>
+      </div>
+
+      <GoDeeperDoor href="/how-atoms-are-made" layer="L3" label="See exactly how atoms are made" />
+    </div>
+  </section>
+
+  <!-- ACT 4 — SCALE -->
+  <section class="act" id="a4">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      <div class="act-no mono">Act 04 — The Multiplication</div>
+      <h2 class="head">One atom. Every format a learner needs. <em style="font-style:italic;font-family:var(--serif)">Same</em> source of truth.</h2>
+      <p class="lede">Here is the leverage made literal. Pick a format — the agent re-expresses atm_0191's single knowledge_text into that form on demand. Notice the hash never changes. Update the atom once, and every form below updates with it.</p>
+
+      <!-- React island mount point for Task 4 — static version (Q&A pane shown) -->
+      <div id="format-switcher-mount" class="switcher-static">
+        <div class="formats">
+          <div class="src-atom mono">SOURCE<br><b>atm_0191</b> · v4 · 9f2a·c41e</div>
+          <div class="fbtn-static active"><span class="dot"></span>Q&amp;A answer</div>
+          <div class="fbtn-static"><span class="dot"></span>Branching scenario</div>
+          <div class="fbtn-static"><span class="dot"></span>Job aid</div>
+          <div class="fbtn-static"><span class="dot"></span>Microlearning</div>
+        </div>
+        <div class="render-static">
+          <div class="rlabel">Rendered as · Teams Q&amp;A</div>
+          <h4>Instant answer, in the flow of work</h4>
+          <div class="qa">
+            <div class="q">"Caller's furious about one duplicate $12 charge from yesterday — escalate?"</div>
+            <div class="a"><b>No — that's Standard (Tier&nbsp;3).</b> One disputed charge inside the dispute window is yours to resolve. Anger isn't severity. Escalate only if the fix needs authority, access, or expertise you don't have.</div>
+          </div>
+          <div class="stamp mono">derived from <b>atm_0191</b> · hash <b>9f2a·c41e</b></div>
+        </div>
+      </div>
+
+      <GoDeeperDoor href="/example" layer="L2" label="Walk through a full atom example" />
+      <GoDeeperDoor href="/the-system" layer="L4" label="See how the system scales" />
+    </div>
+  </section>
+
+  <!-- CLOSING CAP -->
+  <section class="close-cap on-ink">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      <div class="eyebrow">The bet</div>
+      <h2>The course library doesn't scale. <em>Knowledge</em> does.</h2>
+
+      <div class="twostat">
+        <div class="item">
+          <div class="n"><em>~70%</em> forgotten</div>
+          <div class="t">of new learning is gone within a day without reinforcement (Ebbinghaus). Atoms can be re-served as microlearning on a schedule.</div>
+        </div>
+        <div class="item">
+          <div class="n">~9 in 10</div>
+          <div class="t">training programs measure only whether learners <em style="font-style:italic;color:var(--paper-txt)">liked</em> it — never whether behavior changed (Kirkpatrick Level 1).</div>
+        </div>
+      </div>
+
+      <div class="kill-list">
+        <div class="kill-item">10,000-course catalogs</div>
+        <div class="kill-item">SCORM packages</div>
+        <div class="kill-item">"AI-generated courses."</div>
+      </div>
+
+      <p class="kicker">Build the knowledge once. Let the agent multiply the formats. Keep people exactly where judgment lives.</p>
+    </div>
+  </section>
+
+  <footer class="site-footer mono">THE KNOWLEDGE ATOM · WORKING CONCEPT · atm_0191 SHOWN FOR ILLUSTRATION</footer>
+
 </BaseLayout>
