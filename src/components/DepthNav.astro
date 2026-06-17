@@ -1,0 +1,101 @@
+---
+export interface Props {
+  layer: 'L0' | 'L1' | 'L2' | 'L3' | 'L4';
+}
+const { layer } = Astro.props;
+const layers = [
+  { id: 'L0', label: 'Explainer', href: '/' },
+  { id: 'L1', label: 'Anatomy', href: '/anatomy' },
+  { id: 'L2', label: 'Example', href: '/example' },
+  { id: 'L3', label: "How It's Made", href: '/how-atoms-are-made' },
+  { id: 'L4', label: 'The System', href: '/the-system' },
+];
+---
+<nav class="depth-nav" id="depth-nav" data-layer={layer}>
+  <a href="/" class="brand">
+    <span class="brand-dot"></span>
+    <span class="brand-name">THE KNOWLEDGE ATOM</span>
+  </a>
+  <div class="layer-rail" role="navigation" aria-label="Site layers">
+    {layers.map(l => (
+      <a href={l.href} class={`layer-link ${l.id === layer ? 'active' : ''}`} aria-current={l.id === layer ? 'page' : undefined}>
+        <span class="layer-id">{l.id}</span>
+        <span class="layer-label">{l.label}</span>
+      </a>
+    ))}
+  </div>
+  <div class="depth-badge" aria-label={`You are at depth ${layer}`}>{layer}</div>
+</nav>
+
+<style>
+  .depth-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 28px;
+    font-family: var(--mono); font-size: 12px;
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    transition: background .4s, border-color .4s, backdrop-filter .4s;
+    color: var(--paper-txt);
+  }
+  /* Scrolled state on light pages (L0, L1, L2) */
+  .depth-nav.scrolled {
+    background: rgba(233,235,230,.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-color: var(--line);
+    color: var(--txt);
+  }
+  /* Always dark on dark layers */
+  .depth-nav[data-layer="L3"],
+  .depth-nav[data-layer="L4"] {
+    background: rgba(8,13,16,.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-color: var(--rule-2);
+    color: var(--paper-txt);
+  }
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 700; letter-spacing: .04em;
+    text-decoration: none; color: inherit; flex-shrink: 0;
+  }
+  .brand-dot {
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 0 4px rgba(26,160,182,.22);
+    flex-shrink: 0;
+  }
+  .layer-rail { display: flex; gap: 2px; }
+  .layer-link {
+    display: flex; align-items: center; gap: 5px;
+    color: inherit; text-decoration: none;
+    opacity: .5; padding: 4px 10px; border-radius: 3px;
+    transition: opacity .2s; letter-spacing: .04em;
+  }
+  .layer-link:hover { opacity: .85; }
+  .layer-link.active { opacity: 1; color: var(--cyan); }
+  .layer-id { font-size: 10px; opacity: .7; }
+  .depth-badge {
+    font-size: 11px; letter-spacing: .14em;
+    border: 1px solid currentColor; opacity: .5;
+    padding: 3px 8px; border-radius: 30px;
+    flex-shrink: 0;
+  }
+  @media (max-width: 720px) {
+    .layer-rail { display: none; }
+  }
+</style>
+
+<script>
+  const nav = document.getElementById('depth-nav');
+  if (nav) {
+    const layer = nav.dataset.layer;
+    // Only apply scroll listener on light layers
+    if (layer !== 'L3' && layer !== 'L4') {
+      const update = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+      update();
+      window.addEventListener('scroll', update, { passive: true });
+    }
+  }
+</script>
