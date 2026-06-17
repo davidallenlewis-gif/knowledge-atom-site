@@ -1,0 +1,40 @@
+:root {
+  /* Light surface (L0–L2) */
+  --paper: #E9EBE6;
+  --paper-2: #E1E4DE;
+  --ink: #0C1316;
+  --ink-soft: #1A2429;
+  --blueprint: #1C4A6E;
+  --cyan: #1AA0B6;
+  --cyan-deep: #127E90;
+  --amber: #BC8A2C;
+  --line: rgba(12,19,22,.14);
+  --line-strong: rgba(12,19,22,.30);
+  --line-light: rgba(233,235,230,.16);
+  --txt: #14201F;
+  --txt-dim: #566460;
+  --paper-txt: #E9EBE6;
+  --paper-txt-dim: #9FB0AD;
+
+  /* Dark surface (L3–L4) */
+  --ink-1: #080d10;
+  --ink-2: #0d1318;
+  --ink-3: #141c22;
+  --paper-fade: rgba(233,235,230,.38);
+  --paper-dim: rgba(233,235,230,.65);
+  --signal: #5ac8fa;
+  --signal-d: #1c7a9c;
+  --signal-b: rgba(90,200,250,.12);
+  --signal-faint: rgba(90,200,250,.06);
+  --rule: rgba(233,235,230,.08);
+  --rule-2: rgba(233,235,230,.14);
+  --rule-3: rgba(233,235,230,.22);
+  --warn: #e0724a;
+  --violet: #a78bfa;
+
+  /* Typography */
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'Inter Tight', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+  --maxw: 1080px;
+}
