@@ -1,0 +1,234 @@
+/* L1 — Anatomy page styles */
+/* Tokens load globally via tokens.css. This page is mixed light/dark: a light
+   narrative wrapper around a dark atom explorer island. */
+
+.mono { font-family: var(--mono); }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+
+/* ─────────────────────────────────────────────────────────────
+   Page shell + header (light surface)
+   ───────────────────────────────────────────────────────────── */
+.l1-page {
+  background: var(--paper);
+  color: var(--txt);
+  padding-top: 100px;
+  padding-bottom: 120px;
+}
+
+.eyebrow {
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--cyan-deep); font-weight: 500;
+  display: flex; align-items: center; gap: 10px;
+}
+.eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--cyan-deep); display: inline-block; }
+
+.l1-header { max-width: 64ch; margin: 0 0 56px; }
+.l1-title {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(32px, 5.4vw, 60px); line-height: 1.04;
+  letter-spacing: -.02em; margin: 18px 0 0; max-width: 18ch;
+}
+.l1-title em { font-style: italic; color: var(--cyan); }
+.l1-deck {
+  font-size: clamp(16px, 2vw, 19px); color: var(--txt-dim);
+  max-width: 60ch; margin-top: 22px; line-height: 1.6;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Atom explorer island (DARK surface)
+   Ported from §3 Inspector / §4 Wiring in the v2 document.
+   v2 used --paper as on-dark text; here that token is light, so
+   on-dark text uses --paper-txt / --paper-dim / --paper-fade.
+   ───────────────────────────────────────────────────────────── */
+.atom-explorer-wrap {
+  position: relative;
+  margin: 56px 0 96px;
+  border: 1px solid var(--rule-2);
+  background: var(--ink);
+  overflow: hidden;
+  min-height: 680px;
+  color: var(--paper-txt);
+}
+
+.atom-stage { position: relative; width: 100%; height: 100%; min-height: 680px; }
+
+.atom-perspective {
+  width: 100%; height: 100%; min-height: 680px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 48px 0 32px;
+  perspective: 1200px;
+}
+.atom-tilt {
+  transform: rotateX(18deg);
+  transform-style: preserve-3d;
+  width: 100%;
+  display: flex; flex-direction: column; align-items: center;
+}
+
+/* Back button — floats top-right */
+.atom-back-btn {
+  position: absolute; top: 20px; right: 20px;
+  font-family: var(--mono); font-size: 13px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--paper-txt);
+  background: rgba(10, 11, 14, .88); border: 1px solid var(--rule-3);
+  padding: 11px 22px; cursor: pointer; backdrop-filter: blur(6px);
+  z-index: 40; display: flex; align-items: center; gap: 10px;
+}
+.atom-back-arrow { font-size: 18px; line-height: 1; }
+
+/* State label — bottom-center */
+.atom-state-label {
+  position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+  font-family: var(--mono); font-size: 9px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--paper-fade);
+  white-space: nowrap; pointer-events: none;
+}
+
+/* Drawer */
+.atom-drawer-backdrop { position: absolute; inset: 0; z-index: 20; }
+.atom-drawer {
+  position: absolute; top: 0; left: 0; bottom: 0;
+  width: 420px; max-width: 92%;
+  background: rgba(14, 16, 20, .96);
+  border-right: 1px solid var(--rule-2);
+  backdrop-filter: blur(12px);
+  z-index: 30; overflow-y: auto;
+  padding: 28px 28px 40px;
+  transform: translateX(-100%);
+  transition: transform .36s cubic-bezier(.22, 1, .36, 1);
+  pointer-events: none;
+}
+.atom-drawer.open { transform: translateX(0); pointer-events: auto; }
+
+.atom-drawer-inner { animation: atom-slide .32s cubic-bezier(.22, 1, .36, 1); }
+@keyframes atom-slide {
+  from { transform: translateX(-24px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+.atom-crumbs {
+  font-family: var(--mono); font-size: 10px; color: var(--paper-fade);
+  letter-spacing: .06em; display: flex; align-items: center; gap: 6px;
+  margin-bottom: 20px; flex-wrap: wrap;
+}
+.atom-crumbs .sep { color: var(--rule-3); }
+.atom-crumbs .here { color: var(--signal); }
+.atom-crumb-close {
+  margin-left: auto; background: transparent; border: none;
+  color: var(--paper-fade); cursor: pointer; font-family: var(--mono);
+  font-size: 10px; letter-spacing: .12em; padding: 2px 6px;
+}
+
+.atom-why {
+  border: 1px solid var(--signal-b); background: var(--signal-faint);
+  padding: 20px 22px; margin-bottom: 22px; position: relative;
+}
+.atom-why-tag {
+  position: absolute; top: -9px; left: 16px; background: rgba(14, 16, 20, .96);
+  font-family: var(--mono); font-size: 9px; letter-spacing: .22em;
+  color: var(--signal); padding: 0 8px; font-weight: 600;
+}
+.atom-why-body {
+  font-family: var(--serif); font-size: 17px; line-height: 1.5;
+  color: var(--paper-txt); font-style: italic; letter-spacing: -.005em;
+}
+
+.atom-field-label {
+  font-family: var(--serif); font-size: 22px; font-weight: 500;
+  color: var(--paper-txt); line-height: 1.15; margin-bottom: 4px;
+}
+.atom-field-key {
+  font-family: var(--mono); font-size: 16px; font-weight: 500;
+  color: var(--signal); letter-spacing: -.01em; margin-bottom: 12px;
+}
+.atom-field-pills { display: flex; align-items: center; gap: 8px; margin-bottom: 22px; flex-wrap: wrap; }
+.atom-pill {
+  font-family: var(--mono); font-size: 10px; border: 1px solid var(--rule-2);
+  padding: 3px 9px; border-radius: 2px; color: var(--paper-dim);
+}
+.atom-pill.cluster { color: var(--signal); border-color: var(--signal-b); background: var(--signal-faint); }
+
+.atom-field-value-label {
+  font-family: var(--mono); font-size: 9px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--paper-fade); margin-bottom: 8px;
+}
+.atom-field-value {
+  border: 1px solid var(--rule); background: var(--ink-2);
+  padding: 16px 18px; font-family: var(--mono); font-size: 13px;
+  line-height: 1.7; color: var(--paper-txt);
+  white-space: pre-wrap; word-break: break-word;
+}
+
+@media (max-width: 720px) {
+  .atom-drawer { width: 100%; max-width: 100%; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Cluster accordion + plain/technical toggle (light surface)
+   ───────────────────────────────────────────────────────────── */
+.clusters-section { max-width: var(--maxw); margin: 0 auto; }
+.clusters-intro {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 24px; flex-wrap: wrap; margin-bottom: 28px;
+}
+.clusters-intro h2 {
+  font-family: var(--serif); font-weight: 500; font-size: clamp(24px, 3.4vw, 34px);
+  line-height: 1.1; letter-spacing: -.015em; margin: 0; max-width: 18ch;
+}
+
+.toggle-wrap {
+  display: inline-flex; border: 1px solid var(--line-strong);
+  border-radius: 30px; overflow: hidden; flex-shrink: 0;
+}
+.toggle-btn {
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: .06em;
+  padding: 9px 18px; background: var(--paper-2); color: var(--txt-dim);
+  border: none; cursor: pointer; transition: background .2s, color .2s;
+}
+.toggle-btn.active { background: var(--cyan); color: #04282e; font-weight: 500; }
+
+/* accordion */
+.cluster {
+  border: 1px solid var(--line-strong); border-radius: 4px; background: var(--paper-2);
+  overflow: hidden; transition: border-color .3s; margin-bottom: 12px;
+}
+.cluster:hover { border-color: var(--cyan-deep); }
+.cluster summary {
+  list-style: none; cursor: pointer; padding: 20px 22px;
+  display: flex; align-items: center; gap: 16px;
+}
+.cluster summary::-webkit-details-marker { display: none; }
+.cluster .cidx {
+  font-family: var(--mono); font-size: 11px; color: var(--cyan-deep);
+  border: 1px solid var(--cyan-deep); border-radius: 3px; padding: 3px 7px; flex-shrink: 0;
+}
+.cluster .ctitle { font-family: var(--serif); font-size: 21px; font-weight: 500; flex: 1; letter-spacing: -.01em; }
+.cluster .csub { font-size: 13.5px; color: var(--txt-dim); display: block; margin-top: 2px; font-family: var(--sans); }
+.cluster .chev { width: 18px; height: 18px; flex-shrink: 0; transition: transform .3s; color: var(--txt-dim); }
+.cluster[open] .chev { transform: rotate(45deg); }
+
+.cfields {
+  padding: 4px 22px 18px;
+  display: flex; flex-direction: column;
+  border-top: 1px solid var(--line);
+}
+.field-row {
+  display: grid; grid-template-columns: minmax(160px, 1fr) minmax(140px, 1.1fr) 1.4fr;
+  gap: 18px; align-items: start;
+  padding: 14px 0; border-bottom: 1px solid var(--line);
+}
+.field-row:last-child { border-bottom: none; }
+@media (max-width: 720px) {
+  .field-row { grid-template-columns: 1fr; gap: 6px; }
+}
+
+.field-key {
+  font-family: var(--mono); font-size: 12.5px; color: var(--cyan-deep);
+  letter-spacing: .02em; line-height: 1.4;
+}
+.field-val {
+  font-family: var(--mono); font-size: 12px; color: var(--txt);
+  line-height: 1.5; word-break: break-word;
+}
+.field-gloss { font-size: 13.5px; color: var(--txt-dim); line-height: 1.5; }

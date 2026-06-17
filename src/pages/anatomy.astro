@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BackToExplainer from '../components/BackToExplainer.astro';
+import GoDeeperDoor from '../components/GoDeeperDoor.astro';
+import AtomExplorer from '../components/AtomExplorer.tsx';
+import { CLUSTERS, fieldsForCluster } from '../data/fields';
+import '../styles/l1.css';
+---
+
+<BaseLayout title="Anatomy of an Atom — The Knowledge Atom" layer="L1">
+  <main class="l1-page">
+    <div class="wrap">
+      <BackToExplainer />
+
+      <!-- Page header -->
+      <div class="l1-header">
+        <div class="eyebrow">Layer 01 — Anatomy</div>
+        <h1 class="l1-title">The atom is not a course.<br />It's a <em>structure.</em></h1>
+        <p class="l1-deck">
+          Every atom carries 19 fields across four clusters. The interactive diagram below lets you
+          explore them — spin to browse, click a cluster to drill in, click a field to see its value
+          and why it exists.
+        </p>
+      </div>
+
+      <!-- SVG atom explorer (React island) -->
+      <AtomExplorer client:visible />
+
+      <!-- Plain/technical toggle + cluster cards -->
+      <div class="clusters-section" id="clusters">
+        <div class="clusters-intro">
+          <h2>All 19 fields, grouped by purpose</h2>
+          <div class="toggle-wrap">
+            <button class="toggle-btn active" data-mode="plain" id="toggle-plain">Plain language</button>
+            <button class="toggle-btn" data-mode="technical" id="toggle-technical">Technical</button>
+          </div>
+        </div>
+
+        {
+          CLUSTERS.map((cluster) => (
+            <details class="cluster" open={cluster.id === 1}>
+              <summary>
+                <span class="cidx">{String(cluster.id).padStart(2, '0')}</span>
+                <span class="ctitle">
+                  {cluster.title}
+                  <span class="csub">{cluster.sub}</span>
+                </span>
+                <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+              </summary>
+              <div class="cfields">
+                {fieldsForCluster(cluster.id).map((field) => (
+                  <div class="field-row">
+                    <div class="field-key" data-plain={field.label} data-tech={field.key}>
+                      {field.label}
+                    </div>
+                    <div class="field-val">{field.value}</div>
+                    <div class="field-gloss">{field.gloss}</div>
+                  </div>
+                ))}
+              </div>
+            </details>
+          ))
+        }
+      </div>
+
+      <GoDeeperDoor href="/example" layer="L2" label="See a full worked example" />
+    </div>
+  </main>
+</BaseLayout>
+
+<script>
+  // Plain/technical toggle — pure DOM, no React needed.
+  const plain = document.getElementById('toggle-plain');
+  const tech = document.getElementById('toggle-technical');
+  const keys = Array.from(document.querySelectorAll<HTMLElement>('.field-key'));
+
+  function setMode(mode: 'plain' | 'technical') {
+    document.body.dataset.fieldMode = mode;
+    for (const el of keys) {
+      const plainText = el.dataset.plain ?? '';
+      const techText = el.dataset.tech ?? '';
+      el.textContent = mode === 'technical' ? techText : plainText;
+    }
+    plain?.classList.toggle('active', mode === 'plain');
+    tech?.classList.toggle('active', mode === 'technical');
+  }
+
+  plain?.addEventListener('click', () => setMode('plain'));
+  tech?.addEventListener('click', () => setMode('technical'));
+</script>
