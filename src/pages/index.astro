@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import GoDeeperDoor from '../components/GoDeeperDoor.astro';
+import CollapseRadiate from '../components/CollapseRadiate.tsx';
+import WhoDoesWhat from '../components/WhoDoesWhat.tsx';
+import FormatSwitcher from '../components/FormatSwitcher.tsx';
 import '../styles/l0.css';
 ---
 <BaseLayout title="The Knowledge Atom" layer="L0">
@@ -20,15 +23,7 @@ import '../styles/l0.css';
         </div>
       </div>
       <div>
-        <!-- React island mount point for Task 4 — shows end-state visually for now -->
-        <div class="stage" id="collapse-radiate-mount">
-          <div class="course-stack" style="opacity:0"></div>
-          <div class="nucleus"><span>knowledge<br>·core·</span></div>
-          <div class="electron e1" style="left:8%;top:14%">Q&amp;A</div>
-          <div class="electron e2" style="right:6%;top:24%">scenario</div>
-          <div class="electron e3" style="left:12%;bottom:14%">job aid</div>
-          <div class="electron e4" style="right:10%;bottom:20%">micro</div>
-        </div>
+        <CollapseRadiate client:visible />
         <p class="stage-label">ONE 30-MIN COURSE → ONE ATOM → MANY FORMS</p>
       </div>
     </div>
@@ -136,29 +131,7 @@ import '../styles/l0.css';
       <h2 class="head">An agent does the production. A person does the judgment.</h2>
       <p class="lede">This isn't automation replacing instructional designers — it's augmentation. The builder agent drafts, decomposes, and derives at machine speed. The human contributes the part no model can: what's actually true, what edge cases matter, and what behavior we're trying to change.</p>
 
-      <!-- React island mount point for Task 4 — static version shown for now -->
-      <div id="who-does-what-mount" class="duet-static">
-        <div class="duet-header">
-          <div class="duet-tab active">▸ AI — the production (~60%)</div>
-          <div class="duet-tab">▸ Human — the judgment (~40%)</div>
-        </div>
-        <div class="duet-bar">
-          <div class="b-ai"></div>
-          <div class="b-hu"></div>
-        </div>
-        <div class="duet-body">
-          <div class="duet-role">AI · the production</div>
-          <h4>Speed, coverage, and first drafts</h4>
-          <ul>
-            <li>Decomposes a 30-min course into candidate atoms</li>
-            <li>Drafts the canonical knowledge_text for review</li>
-            <li>Derives every presentation form — Q&amp;A, scenario, job aid, micro</li>
-            <li>Re-generates all forms when the atom changes</li>
-            <li>Flags stale or contradictory content across the catalog</li>
-          </ul>
-        </div>
-        <div class="duet-foot">Roughly 60% of the work — the part that used to make new content economically impossible.</div>
-      </div>
+      <WhoDoesWhat client:visible />
 
       <div class="augment-stat">
         <div class="n">~3×</div>
@@ -178,25 +151,7 @@ import '../styles/l0.css';
       <h2 class="head">One atom. Every format a learner needs. <em style="font-style:italic;font-family:var(--serif)">Same</em> source of truth.</h2>
       <p class="lede">Here is the leverage made literal. Pick a format — the agent re-expresses atm_0191's single knowledge_text into that form on demand. Notice the hash never changes. Update the atom once, and every form below updates with it.</p>
 
-      <!-- React island mount point for Task 4 — static version (Q&A pane shown) -->
-      <div id="format-switcher-mount" class="switcher-static">
-        <div class="formats">
-          <div class="src-atom mono">SOURCE<br><b>atm_0191</b> · v4 · 9f2a·c41e</div>
-          <div class="fbtn-static active"><span class="dot"></span>Q&amp;A answer</div>
-          <div class="fbtn-static"><span class="dot"></span>Branching scenario</div>
-          <div class="fbtn-static"><span class="dot"></span>Job aid</div>
-          <div class="fbtn-static"><span class="dot"></span>Microlearning</div>
-        </div>
-        <div class="render-static">
-          <div class="rlabel">Rendered as · Teams Q&amp;A</div>
-          <h4>Instant answer, in the flow of work</h4>
-          <div class="qa">
-            <div class="q">"Caller's furious about one duplicate $12 charge from yesterday — escalate?"</div>
-            <div class="a"><b>No — that's Standard (Tier&nbsp;3).</b> One disputed charge inside the dispute window is yours to resolve. Anger isn't severity. Escalate only if the fix needs authority, access, or expertise you don't have.</div>
-          </div>
-          <div class="stamp mono">derived from <b>atm_0191</b> · hash <b>9f2a·c41e</b></div>
-        </div>
-      </div>
+      <FormatSwitcher client:visible mode="static" />
 
       <GoDeeperDoor href="/example" layer="L2" label="Walk through a full atom example" />
       <GoDeeperDoor href="/the-system" layer="L4" label="See how the system scales" />

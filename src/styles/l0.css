@@ -264,6 +264,93 @@ h2.head {
   color: var(--paper-txt-dim); letter-spacing: .08em; margin-top: 6px;
 }
 
+/* ---------- CollapseRadiate island animation ---------- */
+/* Before .go: course stack visible, nucleus + electrons hidden */
+.stage .nucleus { opacity: 0; transform: scale(0.4); transition: opacity .6s .8s, transform .8s .8s cubic-bezier(.34,1.56,.64,1); }
+.stage .electron { opacity: 0; transform: scale(0.3); transition: opacity .5s, transform .6s cubic-bezier(.34,1.56,.64,1); }
+.stage .electron.e1 { transition-delay: 1.0s; }
+.stage .electron.e2 { transition-delay: 1.15s; }
+.stage .electron.e3 { transition-delay: 1.3s; }
+.stage .electron.e4 { transition-delay: 1.45s; }
+
+/* After .go fires */
+.stage.go .course-stack { opacity: 0; transform: scale(0.85); }
+.stage.go .nucleus { opacity: 1; transform: scale(1); }
+.stage.go .electron { opacity: 1; transform: scale(1); }
+
+/* ---------- WhoDoesWhat island ---------- */
+.duet {
+  margin-top: 56px; border: 1px solid var(--line-strong); border-radius: 5px; overflow: hidden;
+}
+.duet-toggle {
+  display: flex; font-family: var(--mono); font-size: 12.5px; letter-spacing: .04em;
+  border-bottom: 1px solid var(--line-strong);
+}
+.duet-toggle button {
+  flex: 1; padding: 15px; background: var(--paper-2); color: var(--txt-dim);
+  border: none; border-bottom: 2px solid transparent; letter-spacing: .04em;
+  cursor: pointer; text-align: left; font-family: var(--mono); font-size: 12.5px;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.duet-toggle button[aria-pressed="true"] {
+  background: var(--paper); color: var(--txt); border-bottom-color: var(--cyan);
+}
+.duet-bar { height: 14px; display: flex; }
+.duet-bar .b-ai { background: var(--blueprint); width: 60%; transition: width .5s cubic-bezier(.4,0,.2,1); }
+.duet-bar .b-hu { background: var(--cyan); width: 40%; transition: width .5s cubic-bezier(.4,0,.2,1); }
+.duet-bar.hu .b-ai { width: 40%; }
+.duet-bar.hu .b-hu { width: 60%; }
+
+/* ---------- FormatSwitcher island ---------- */
+.switcher {
+  margin-top: 54px; display: grid; grid-template-columns: 240px 1fr;
+  gap: 0; border: 1px solid var(--line-strong); border-radius: 5px; overflow: hidden;
+}
+@media (max-width: 720px) { .switcher { grid-template-columns: 1fr; } }
+
+.fbtn {
+  text-align: left; border: 1px solid transparent; background: transparent;
+  color: var(--paper-txt-dim); font-family: var(--mono); font-size: 13px;
+  padding: 13px 14px; border-radius: 4px; display: flex; align-items: center; gap: 10px;
+  cursor: pointer; width: 100%;
+  transition: background .15s, color .15s;
+}
+.fbtn.active, .fbtn[aria-pressed="true"] { background: var(--cyan); color: #04282e; font-weight: 500; }
+.fbtn .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: .6; flex-shrink: 0; }
+
+.render { background: var(--paper-2); padding: 30px 30px 26px; min-height: 280px; position: relative; }
+.render .rlabel { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--cyan-deep); }
+.render h4 { font-family: var(--serif); font-weight: 500; font-size: 22px; margin: 6px 0 16px; line-height: 1.15; }
+
+/* render-pane fade-in on key change */
+@keyframes pane-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.render-pane { animation: pane-in .3s ease both; }
+.render-pane.show { animation: pane-in .3s ease both; }
+
+/* scenario */
+.scn { font-size: 15.5px; line-height: 1.6; color: var(--txt); }
+.scn p { color: var(--txt-dim); }
+.scn .verdict {
+  display: inline-block; margin-top: 18px; font-family: var(--mono); font-size: 13px;
+  letter-spacing: .04em; color: #04282e; background: var(--cyan);
+  padding: 8px 14px; border-radius: 3px; font-weight: 600;
+}
+
+/* job aid table */
+.aid { width: 100%; border-collapse: collapse; font-size: 14px; }
+.aid th { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--cyan-deep); text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line-strong); }
+.aid td { padding: 10px 10px; border-bottom: 1px solid var(--line); color: var(--txt); vertical-align: top; }
+.aid td.t { font-family: var(--mono); font-size: 12px; color: var(--cyan-deep); font-weight: 600; white-space: nowrap; }
+
+/* microlearning */
+.micro { font-size: 15.5px; }
+.micro .prompt { color: var(--txt-dim); font-style: italic; margin-bottom: 16px; font-size: 16px; }
+.micro .flip {
+  background: var(--paper); border: 1px solid var(--line-strong); border-left: 3px solid var(--cyan);
+  padding: 16px 18px; border-radius: 3px; color: var(--txt); line-height: 1.6;
+}
+.micro .flip b { color: var(--cyan-deep); }
+
 /* ---------- Act 3 stat ---------- */
 .augment-stat { margin-top: 36px; max-width: 42ch; }
 .augment-stat .n {
