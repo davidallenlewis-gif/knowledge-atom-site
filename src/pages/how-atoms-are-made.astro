@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BackToExplainer from '../components/BackToExplainer.astro';
+import GoDeeperDoor from '../components/GoDeeperDoor.astro';
+import PhaseStrip from '../components/PhaseStrip.tsx';
+import '../styles/l3.css';
+---
+<BaseLayout title="How Atoms Are Made — The Knowledge Atom" layer="L3">
+  <div class="l3-page">
+    <header class="sec-head wrap">
+      <div class="sec-head-l">
+        <BackToExplainer />
+        <div class="sec-eyebrow">Layer 03 — Process</div>
+        <div class="sec-num">03.</div>
+      </div>
+      <div class="sec-head-r">
+        <h1 class="serif sec-title">From conversation<br/><em>to atom.</em></h1>
+        <p class="sec-deck">Six phases. The SME brings the problem and the judgment. The agent brings the production. Neither can do it alone.</p>
+      </div>
+    </header>
+
+    <PhaseStrip client:load />
+
+    <div class="wrap">
+      <GoDeeperDoor href="/the-system" layer="L4" label="See how atoms reach learners" />
+    </div>
+  </div>
+</BaseLayout>
