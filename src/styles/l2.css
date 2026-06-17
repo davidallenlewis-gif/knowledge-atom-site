@@ -1,0 +1,305 @@
+/* L2 — Worked Example page styles */
+/* Mixed light/dark: page shell is light (--paper), specimen card and switcher use darker surfaces. */
+
+.mono { font-family: var(--mono); }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+
+/* ---------- eyebrow / labels ---------- */
+.eyebrow {
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--cyan-deep); font-weight: 500;
+  display: flex; align-items: center; gap: 10px;
+}
+.eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--cyan-deep); display: inline-block; }
+
+/* ---------- Page shell ---------- */
+.l2-page {
+  background: var(--paper);
+  color: var(--txt);
+  padding-top: 100px;
+  padding-bottom: 140px;
+}
+
+/* ---------- Step sections ---------- */
+.l2-step {
+  padding: 80px 0 72px;
+  border-top: 1px solid var(--line-strong);
+}
+.l2-step:first-of-type { border-top: none; }
+
+.step-num {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--txt-dim); margin-bottom: 12px;
+}
+
+.step-title {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(26px, 4vw, 42px); line-height: 1.06;
+  letter-spacing: -.016em; margin: 0 0 20px; max-width: 22ch;
+}
+
+.step-deck {
+  font-size: clamp(16px, 1.9vw, 19px); color: var(--txt-dim);
+  max-width: 56ch; margin-top: 0; line-height: 1.62;
+}
+
+/* ---------- Step 1: Course card ---------- */
+.course-card {
+  margin-top: 44px; max-width: 560px;
+  border: 1px solid var(--line-strong); background: var(--paper-2);
+  padding: 26px 28px; border-radius: 4px;
+}
+.course-card-header {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+}
+.course-card-title {
+  font-family: var(--serif); font-weight: 500; font-size: 20px; line-height: 1.2; flex: 1;
+}
+.course-badge {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--txt-dim); border: 1px solid var(--line-strong); padding: 4px 10px;
+  border-radius: 2px; flex-shrink: 0; white-space: nowrap;
+}
+.course-meta {
+  display: flex; flex-wrap: wrap; gap: 4px 18px;
+  font-family: var(--mono); font-size: 11.5px; color: var(--txt-dim);
+  margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line);
+}
+.course-meta b { color: var(--txt); font-weight: 500; }
+.course-meta .sealed {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .04em;
+  color: var(--amber); margin-top: 6px; width: 100%;
+}
+
+/* completion bar */
+.completion-row {
+  margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line);
+}
+.completion-label {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .06em; color: var(--txt-dim);
+  display: flex; justify-content: space-between; margin-bottom: 8px;
+}
+.completion-label b { color: var(--txt); }
+.completion-bar {
+  height: 7px; background: var(--line-strong); border-radius: 2px; overflow: hidden;
+}
+.completion-bar-fill {
+  height: 100%; width: 34%; background: var(--amber); border-radius: 2px;
+}
+
+/* ---------- Step 2: Candidate list ---------- */
+.candidate-list {
+  margin-top: 44px; display: flex; flex-direction: column; gap: 10px; max-width: 600px;
+}
+
+.candidate-item {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 16px 20px; border: 1px solid var(--line-strong); border-radius: 4px;
+  background: var(--paper-2); transition: border-color .25s;
+}
+.candidate-item:hover { border-color: var(--cyan-deep); }
+.candidate-item .cid {
+  font-family: var(--mono); font-size: 11px; color: var(--txt-dim);
+  letter-spacing: .04em; flex-shrink: 0; padding-top: 2px;
+}
+.candidate-item .ctitle-text {
+  font-size: 15px; color: var(--txt); line-height: 1.3; font-weight: 500;
+}
+
+.candidate-item.spotlight {
+  border-color: var(--cyan-deep); border-width: 1px;
+  background: var(--paper);
+  box-shadow: 0 0 0 1px var(--cyan-deep), 0 4px 16px rgba(18,126,144,.12);
+}
+.candidate-item.spotlight .cid { color: var(--cyan-deep); }
+.candidate-item.spotlight .ctitle-text { color: var(--txt); }
+
+.spotlight-badge {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+  color: #04282e; background: var(--cyan); padding: 3px 9px; border-radius: 2px;
+  margin-left: auto; flex-shrink: 0; align-self: center;
+}
+
+/* status progression */
+.status-progression {
+  display: flex; align-items: center; gap: 8px; margin-top: 10px; flex-wrap: wrap;
+}
+.status-tag {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .06em; text-transform: uppercase;
+  padding: 3px 9px; border-radius: 2px; border: 1px solid var(--line-strong);
+  color: var(--txt-dim); background: var(--paper-2);
+}
+.status-tag.active {
+  color: #04282e; background: var(--cyan); border-color: var(--cyan);
+}
+.status-arrow { color: var(--txt-dim); font-size: 12px; }
+
+/* ---------- Step 3: Specimen card ---------- */
+.specimen-wrap {
+  margin-top: 44px;
+}
+
+.specimen {
+  border: 1px solid var(--line-strong); background: var(--paper-2);
+  padding: 26px; border-radius: 4px; max-width: 680px;
+}
+.specimen .tag {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+  color: var(--cyan-deep); text-transform: uppercase;
+}
+.specimen h3 {
+  font-family: var(--serif); font-weight: 500; font-size: 24px;
+  margin: 8px 0 4px; line-height: 1.1;
+}
+.specimen .meta {
+  font-family: var(--mono); font-size: 11px; color: var(--txt-dim);
+  display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 10px;
+  padding-top: 12px; border-top: 1px solid var(--line);
+}
+.specimen .meta b { color: var(--txt); font-weight: 500; }
+
+.ktext {
+  font-size: 14.5px; line-height: 1.62; color: var(--txt); margin-top: 16px;
+  padding: 14px; background: var(--paper); border: 1px dashed var(--line-strong); border-radius: 3px;
+}
+.ktext .lbl {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--cyan-deep); display: block; margin-bottom: 7px;
+}
+
+/* cluster accordions */
+.clusters { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+
+.cluster {
+  border: 1px solid var(--line-strong); border-radius: 4px; background: var(--paper-2);
+  overflow: hidden; transition: border-color .3s;
+}
+.cluster:hover { border-color: var(--cyan-deep); }
+.cluster summary {
+  list-style: none; cursor: pointer; padding: 16px 20px;
+  display: flex; align-items: center; gap: 14px;
+}
+.cluster summary::-webkit-details-marker { display: none; }
+.cluster .cidx {
+  font-family: var(--mono); font-size: 11px; color: var(--cyan-deep);
+  border: 1px solid var(--cyan-deep); border-radius: 3px; padding: 3px 7px; flex-shrink: 0;
+}
+.cluster .ctitle {
+  font-family: var(--serif); font-size: 18px; font-weight: 500; flex: 1; letter-spacing: -.01em;
+}
+.cluster .csub {
+  font-size: 12.5px; color: var(--txt-dim); display: block; margin-top: 2px; font-family: var(--sans);
+}
+.cluster .chev {
+  width: 16px; height: 16px; flex-shrink: 0; transition: transform .3s; color: var(--txt-dim);
+}
+.cluster[open] .chev { transform: rotate(45deg); }
+
+.cfields {
+  padding: 0 20px 18px; display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1px; background: var(--line); border-top: 1px solid var(--line);
+}
+@media (max-width: 560px) { .cfields { grid-template-columns: 1fr; } }
+
+.field { background: var(--paper-2); padding: 13px 4px 13px 0; }
+.field .fk {
+  font-family: var(--mono); font-size: 11px; color: var(--cyan-deep); letter-spacing: .02em;
+}
+.field .fv { font-size: 13.5px; color: var(--txt); margin-top: 3px; line-height: 1.45; }
+
+.cnote {
+  padding: 12px 20px 16px; font-size: 13px; color: var(--txt-dim);
+  border-top: 1px solid var(--line); font-style: italic;
+}
+
+/* ---------- Step 4: Format switcher copy-in ---------- */
+/* The switcher component is rendered in this page; since l0.css isn't imported,
+   all switcher styles are mirrored here. */
+
+.switcher {
+  margin-top: 44px; display: grid; grid-template-columns: 240px 1fr;
+  gap: 0; border: 1px solid var(--line-strong); border-radius: 5px; overflow: hidden;
+}
+@media (max-width: 720px) { .switcher { grid-template-columns: 1fr; } }
+
+.formats { background: var(--ink); padding: 22px; display: flex; flex-direction: column; gap: 6px; }
+.formats .src-atom {
+  font-family: var(--mono); font-size: 10.5px; color: var(--paper-txt-dim);
+  letter-spacing: .06em; padding-bottom: 14px; margin-bottom: 8px;
+  border-bottom: 1px solid var(--line-light); line-height: 1.6;
+}
+.formats .src-atom b { color: var(--cyan); }
+
+.fbtn {
+  text-align: left; border: 1px solid transparent; background: transparent;
+  color: var(--paper-txt-dim); font-family: var(--mono); font-size: 13px;
+  padding: 13px 14px; border-radius: 4px; display: flex; align-items: center; gap: 10px;
+  cursor: pointer; width: 100%;
+  transition: background .15s, color .15s;
+}
+.fbtn.active, .fbtn[aria-pressed="true"] { background: var(--cyan); color: #04282e; font-weight: 500; }
+.fbtn .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: .6; flex-shrink: 0; }
+
+.render { background: var(--paper-2); padding: 30px 30px 26px; min-height: 280px; position: relative; }
+.render .rlabel {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--cyan-deep);
+}
+.render h4 { font-family: var(--serif); font-weight: 500; font-size: 22px; margin: 6px 0 16px; line-height: 1.15; }
+
+@keyframes pane-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.render-pane { animation: pane-in .3s ease both; }
+.render-pane.show { animation: pane-in .3s ease both; }
+
+/* Q&A */
+.qa { font-size: 15.5px; }
+.qa .q { color: var(--txt-dim); font-style: italic; margin-bottom: 10px; }
+.qa .a { color: var(--txt); line-height: 1.6; }
+.qa .a b { color: var(--cyan-deep); }
+
+/* scenario */
+.scn { font-size: 15.5px; line-height: 1.6; color: var(--txt); }
+.scn p { color: var(--txt-dim); }
+.scn .verdict {
+  display: inline-block; margin-top: 18px; font-family: var(--mono); font-size: 13px;
+  letter-spacing: .04em; color: #04282e; background: var(--cyan);
+  padding: 8px 14px; border-radius: 3px; font-weight: 600;
+}
+
+/* job aid table */
+.aid { width: 100%; border-collapse: collapse; font-size: 14px; }
+.aid th {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--cyan-deep); text-align: left; padding: 8px 10px;
+  border-bottom: 1px solid var(--line-strong);
+}
+.aid td { padding: 10px 10px; border-bottom: 1px solid var(--line); color: var(--txt); vertical-align: top; }
+.aid td.t { font-family: var(--mono); font-size: 12px; color: var(--cyan-deep); font-weight: 600; white-space: nowrap; }
+
+/* microlearning */
+.micro { font-size: 15.5px; }
+.micro .prompt { color: var(--txt-dim); font-style: italic; margin-bottom: 16px; font-size: 16px; }
+.micro .flip {
+  background: var(--paper); border: 1px solid var(--line-strong); border-left: 3px solid var(--cyan);
+  padding: 16px 18px; border-radius: 3px; color: var(--txt); line-height: 1.6;
+}
+.micro .flip b { color: var(--cyan-deep); }
+
+/* hash stamp */
+.stamp {
+  position: absolute; bottom: 16px; right: 20px;
+  font-family: var(--mono); font-size: 10px; letter-spacing: .06em; color: var(--txt-dim);
+}
+.stamp b { color: var(--cyan-deep); }
+
+/* ---------- Switcher note ---------- */
+.switcher-note {
+  margin-top: 18px; font-family: var(--mono); font-size: 12px; letter-spacing: .04em;
+  color: var(--txt-dim); font-style: italic; max-width: 56ch;
+}
+
+/* ---------- Go Deeper footer ---------- */
+.go-deeper-row {
+  margin-top: 72px; padding-top: 40px; border-top: 1px solid var(--line-strong);
+  display: flex; flex-wrap: wrap; gap: 24px 48px;
+}

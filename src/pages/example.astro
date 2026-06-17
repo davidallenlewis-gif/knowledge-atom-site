@@ -1,0 +1,300 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BackToExplainer from '../components/BackToExplainer.astro';
+import GoDeeperDoor from '../components/GoDeeperDoor.astro';
+import FormatSwitcher from '../components/FormatSwitcher.tsx';
+import '../styles/l2.css';
+---
+
+<BaseLayout title="Worked Example — The Knowledge Atom" layer="L2">
+  <main class="l2-page">
+    <div class="wrap">
+      <BackToExplainer />
+
+      <!-- Page header -->
+      <div class="eyebrow">Layer 02 — Worked Example</div>
+      <h1 class="step-title" style="font-size: clamp(32px, 5vw, 58px); margin-top: 18px; max-width: 18ch;">
+        One course.<br />One atom.<br />Every format.
+      </h1>
+      <p class="step-deck" style="margin-top: 24px; margin-bottom: 0;">
+        Follow atm_0191 — Severity Classification for Tier-1 Escalation — from its source
+        course through decomposition, population, and deployment across four formats.
+      </p>
+
+      <!-- ─────────────── STEP 1: The Source ─────────────── -->
+      <section class="l2-step">
+        <div class="step-num">Step 01 / 04</div>
+        <h2 class="step-title">The source: a 30-minute course</h2>
+        <p class="step-deck">
+          The Tier-1 Escalation course exists today as a linear SCORM module. Reps are
+          assigned it during onboarding. Most don't finish it. None of them can search it
+          when a live call goes sideways.
+        </p>
+
+        <div class="course-card">
+          <div class="course-card-header">
+            <div class="course-card-title">Tier-1 Escalation Procedures</div>
+            <div class="course-badge">SCORM · LMS</div>
+          </div>
+          <div class="course-meta">
+            <span><b>Duration</b> 30 min</span>
+            <span><b>Format</b> Linear video</span>
+            <span><b>Domain</b> Contact center operations</span>
+            <span><b>Coverage</b> Escalation procedures, classification, routing, documentation</span>
+            <span class="sealed">⚠ Knowledge sealed inside format — not searchable, not reusable</span>
+          </div>
+          <div class="completion-row">
+            <div class="completion-label">
+              <span>Completion rate</span>
+              <b>34%</b>
+            </div>
+            <div class="completion-bar">
+              <div class="completion-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 32px; max-width: 56ch;">
+          <div style="border-left: 2px solid var(--amber); padding: 6px 0 6px 18px;">
+            <div style="font-family: var(--serif); font-size: clamp(22px, 3vw, 32px); font-weight: 500; letter-spacing: -.02em;">340</div>
+            <div style="font-size: 14.5px; color: var(--txt-dim); margin-top: 4px;">unnecessary escalations per week traced to severity misclassification</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────────── STEP 2: Decomposition ─────────────── -->
+      <section class="l2-step">
+        <div class="step-num">Step 02 / 04</div>
+        <h2 class="step-title">Breaking it apart</h2>
+        <p class="step-deck">
+          The course contains multiple distinct teachable ideas. An agent reads through the
+          content and identifies candidate atoms — each one a single, verifiable claim.
+          Five emerge. One is spotlighted here.
+        </p>
+
+        <div class="candidate-list">
+          <div class="candidate-item">
+            <div class="cid">atm_0188</div>
+            <div class="ctitle-text">Account types and access levels</div>
+          </div>
+          <div class="candidate-item">
+            <div class="cid">atm_0189</div>
+            <div class="ctitle-text">CFPB Regulation E obligations</div>
+          </div>
+          <div class="candidate-item">
+            <div class="cid">atm_0190</div>
+            <div class="ctitle-text">Escalation channel routing</div>
+          </div>
+
+          <!-- Spotlight -->
+          <div class="candidate-item spotlight">
+            <div class="cid">atm_0191</div>
+            <div>
+              <div class="ctitle-text">Severity Classification for Tier-1 Escalation</div>
+              <div class="status-progression">
+                <span class="status-tag">draft</span>
+                <span class="status-arrow">→</span>
+                <span class="status-tag active">verified</span>
+              </div>
+            </div>
+            <div class="spotlight-badge">This atom</div>
+          </div>
+
+          <div class="candidate-item">
+            <div class="cid">atm_0192</div>
+            <div class="ctitle-text">Documentation requirements</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────────── STEP 3: The Populated Atom ─────────────── -->
+      <section class="l2-step">
+        <div class="step-num">Step 03 / 04</div>
+        <h2 class="step-title">The atom: atm_0191</h2>
+        <p class="step-deck">
+          Each field is filled with structured data. The knowledge_text is the canonical
+          statement of truth — everything else is metadata that makes it findable,
+          attributable, and measurable.
+        </p>
+
+        <div class="specimen-wrap">
+          <div class="specimen">
+            <div class="tag">Knowledge Atom · Specimen</div>
+            <h3>Severity Classification for Tier-1 Escalation</h3>
+            <div class="meta">
+              <span><b>ID</b> atm_0191</span>
+              <span><b>ver</b> v4</span>
+              <span><b>status</b> Verified</span>
+              <span><b>hash</b> 9f2a·c41e</span>
+              <span><b>skill</b> Apply</span>
+            </div>
+            <div class="ktext">
+              <span class="lbl">knowledge_text</span>
+              Escalation severity is set by what a fix requires — authority, system access,
+              or expertise the rep doesn't hold — not by how upset the caller is. Active
+              harm (an unauthorized transfer draining funds) escalates now; a single disputed
+              charge inside the window is handled at Tier 1. Emotion is a service cue, not
+              a severity signal.
+            </div>
+
+            <div class="clusters">
+              <!-- Cluster 1: Identity -->
+              <details class="cluster" open>
+                <summary>
+                  <span class="cidx">01</span>
+                  <span class="ctitle">
+                    Identity
+                    <span class="csub">What this atom is and where it lives</span>
+                  </span>
+                  <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 5v14M5 12h14" />
+                  </svg>
+                </summary>
+                <div class="cfields">
+                  <div class="field">
+                    <div class="fk">atom_id</div>
+                    <div class="fv">atm_0191</div>
+                  </div>
+                  <div class="field">
+                    <div class="fk">version</div>
+                    <div class="fv">v4</div>
+                  </div>
+                  <div class="field">
+                    <div class="fk">status</div>
+                    <div class="fv">Verified</div>
+                  </div>
+                  <div class="field">
+                    <div class="fk">content_hash</div>
+                    <div class="fv">9f2a·c41e</div>
+                  </div>
+                </div>
+              </details>
+
+              <!-- Cluster 2: Knowledge -->
+              <details class="cluster" open>
+                <summary>
+                  <span class="cidx">02</span>
+                  <span class="ctitle">
+                    Knowledge
+                    <span class="csub">The claim, its authority, and bloom level</span>
+                  </span>
+                  <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 5v14M5 12h14" />
+                  </svg>
+                </summary>
+                <div class="cfields">
+                  <div class="field">
+                    <div class="fk">knowledge_text</div>
+                    <div class="fv">Severity is set by what a fix requires, not caller emotion.</div>
+                  </div>
+                  <div class="field">
+                    <div class="fk">bloom_level</div>
+                    <div class="fv">Apply</div>
+                  </div>
+                  <div class="field">
+                    <div class="fk">citation</div>
+                    <div class="fv">CFPB Regulation E §1005.6(b)</div>
+                  </div>
+                  <div class="field">
+                    <div class="fk">domain</div>
+                    <div class="fv">Contact center · Escalation</div>
+                  </div>
+                </div>
+                <div class="cnote">Citation anchors the claim to CFPB Regulation E — the legal obligation that defines unauthorized transfer liability windows.</div>
+              </details>
+
+              <!-- Cluster 3: Skill linkage -->
+              <details class="cluster">
+                <summary>
+                  <span class="cidx">03</span>
+                  <span class="ctitle">
+                    Skill linkage
+                    <span class="csub">How this atom contributes to measurable competency</span>
+                  </span>
+                  <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 5v14M5 12h14" />
+                  </svg>
+                </summary>
+                <div class="cfields">
+                  <div class="field">
+                    <div class="fk">skill_id</div>
+                    <div class="fv">skl_0044</div>
+                  </div>
+                  <div class="field">
+                    <div class="fk">skill_name</div>
+                    <div class="fv">Tier-1 Escalation Management</div>
+                  </div>
+                  <div class="field">
+                    <div class="fk">skill_level_target</div>
+                    <div class="fv">Level 2</div>
+                  </div>
+                  <div class="field">
+                    <div class="fk">skill_contribution</div>
+                    <div class="fv">0.30 toward Level 2</div>
+                  </div>
+                </div>
+                <div class="cnote">This atom contributes 0.30 of the weight needed to advance a rep to Level 2 on skl_0044. Four other atoms contribute the remainder.</div>
+              </details>
+
+              <!-- Cluster 4: Assessment -->
+              <details class="cluster">
+                <summary>
+                  <span class="cidx">04</span>
+                  <span class="ctitle">
+                    Assessment
+                    <span class="csub">How mastery is measured</span>
+                  </span>
+                  <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 5v14M5 12h14" />
+                  </svg>
+                </summary>
+                <div class="cfields">
+                  <div class="field">
+                    <div class="fk">mastery_threshold</div>
+                    <div class="fv">80%</div>
+                  </div>
+                  <div class="field">
+                    <div class="fk">question_count</div>
+                    <div class="fv">5</div>
+                  </div>
+                  <div class="field">
+                    <div class="fk">retry_policy</div>
+                    <div class="fv">Immediate, unlimited</div>
+                  </div>
+                  <div class="field">
+                    <div class="fk">decay_model</div>
+                    <div class="fv">Spaced repetition · 30d cycle</div>
+                  </div>
+                </div>
+                <div class="cnote">A rep must score 80% across 5 questions to mark this atom mastered. The decay model schedules a review question 30 days later.</div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────────── STEP 4: Variations ─────────────── -->
+      <section class="l2-step">
+        <div class="step-num">Step 04 / 04</div>
+        <h2 class="step-title">One atom, every format</h2>
+        <p class="step-deck">
+          The same knowledge_text re-expressed across four delivery formats. The hash never
+          changes. Switch between them below.
+        </p>
+
+        <FormatSwitcher client:visible mode="static" />
+
+        <p class="switcher-note">
+          Each format carries the hash. Update the atom once — all four update with it.
+        </p>
+      </section>
+
+      <!-- ─────────────── Go Deeper ─────────────── -->
+      <div class="go-deeper-row">
+        <GoDeeperDoor href="/how-atoms-are-made" layer="L3" label="See how this atom was made" />
+        <GoDeeperDoor href="/the-system" layer="L4" label="See how atoms reach learners" />
+      </div>
+
+    </div>
+  </main>
+</BaseLayout>
