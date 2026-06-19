@@ -97,7 +97,64 @@ import '../styles/l0.css';
       <FormatSwitcher client:visible mode="static" />
 
       <GoDeeperDoor href="/example" layer="L2" label="Walk through a full atom example" />
-      <GoDeeperDoor href="/the-system" layer="L4" label="See how the system scales" />
+    </div>
+  </section>
+
+  <!-- ACT 5 — TWO AGENTS -->
+  <section class="act act-5 on-ink" id="a5">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      <div class="act-no mono">Act 05 — The Agents</div>
+      <h2 class="head">Two agents. <em style="font-style:italic;font-family:var(--serif)">One atom.</em></h2>
+      <p class="lede">The atom doesn't sit in a library. It powers two live agents: one that answers questions in the flow of work, one that builds skills over time. Neither invents anything. Both read from the same canonical source.</p>
+
+      <div class="a5-diagram">
+        <!-- Q&A agent -->
+        <div class="a5-col a5-col-qa">
+          <div class="a5-agent-tag">α · Q&amp;A Agent</div>
+          <div class="a5-agent-title">Instant answer,<br/>in the flow of work.</div>
+          <ul class="a5-list">
+            <li>Employee asks a question mid-task</li>
+            <li>Agent reads <code>knowledge_text</code> directly</li>
+            <li>Returns a cited, auditable answer</li>
+            <li>Stamps the hash — traceable to the exact version</li>
+          </ul>
+          <div class="a5-constraint">Cannot answer outside <code>citations[]</code></div>
+        </div>
+
+        <!-- Center atom -->
+        <div class="a5-center">
+          <div class="a5-atom-card">
+            <div class="a5-atom-id">atm_0191</div>
+            <div class="a5-atom-status">published</div>
+            <div class="a5-atom-rule"></div>
+            <div class="a5-atom-line"><span class="a5-k">knowledge_text</span><span class="a5-arrow">→</span></div>
+            <div class="a5-atom-line"><span class="a5-k">presentations[]</span><span class="a5-arrow">→</span></div>
+            <div class="a5-atom-line"><span class="a5-k">citations[]</span><span class="a5-arrow">→</span></div>
+            <div class="a5-atom-rule"></div>
+            <div class="a5-atom-constraint">The atom is the only source.</div>
+          </div>
+          <div class="a5-center-arrows">
+            <div class="a5-arrow-left">←</div>
+            <div class="a5-arrow-right">→</div>
+          </div>
+        </div>
+
+        <!-- Learning agent -->
+        <div class="a5-col a5-col-learn">
+          <div class="a5-agent-tag a5-agent-tag-amber">β · Learning Agent</div>
+          <div class="a5-agent-title">Skill built<br/>one atom at a time.</div>
+          <ul class="a5-list">
+            <li>Employee wants to build a capability</li>
+            <li>Agent reads <code>bloom_level</code> + <code>mastery_threshold</code></li>
+            <li>Selects the right presentation form for context</li>
+            <li>Sequences atoms into a personalized path</li>
+          </ul>
+          <div class="a5-constraint">Cannot invent content — every module traces to an <code>atom_id</code></div>
+        </div>
+      </div>
+
+      <GoDeeperDoor href="/the-system" layer="L4" label="See how both agents work" />
     </div>
   </section>
 
