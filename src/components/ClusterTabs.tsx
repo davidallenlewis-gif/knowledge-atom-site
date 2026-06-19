@@ -69,8 +69,6 @@ export default function ClusterTabs() {
 
   return (
     <div className="cluster-tabs">
-      <p className="cluster-tabs-intro">Underneath, every atom carries 19 fields. For a decision-maker they group into four plain questions.</p>
-
       {/* Tab bar */}
       <div className="ctab-bar" role="tablist">
         {CLUSTERS.map(c => (
