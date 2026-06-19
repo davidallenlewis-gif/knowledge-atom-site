@@ -37,12 +37,12 @@ function AtomNav({ activeCluster, onSelect }: AtomNavProps) {
     >
       <defs>
         <radialGradient id="afe-glow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="rgba(90,200,250,0.13)" />
-          <stop offset="100%" stopColor="rgba(90,200,250,0)" />
+          <stop offset="0%" stopColor="rgba(26,160,182,0.12)" />
+          <stop offset="100%" stopColor="rgba(26,160,182,0)" />
         </radialGradient>
         <radialGradient id="afe-nucleus-fill" cx="38%" cy="32%" r="65%">
-          <stop offset="0%" stopColor="rgba(90,200,250,0.18)" />
-          <stop offset="100%" stopColor="rgba(8,11,16,0.98)" />
+          <stop offset="0%" stopColor="#1C4A6E" />
+          <stop offset="100%" stopColor="#0C1316" />
         </radialGradient>
       </defs>
 
@@ -53,7 +53,7 @@ function AtomNav({ activeCluster, onSelect }: AtomNavProps) {
       <circle
         cx={CX} cy={CY} r={ORBIT_R}
         fill="none"
-        stroke="rgba(232,234,237,0.06)"
+        stroke="rgba(12,19,22,0.12)"
         strokeWidth="1"
         strokeDasharray="3 7"
       />
@@ -68,7 +68,7 @@ function AtomNav({ activeCluster, onSelect }: AtomNavProps) {
           <line
             key={`spoke-${c.id}`}
             x1={CX} y1={CY} x2={nx} y2={ny}
-            stroke={isActive ? 'rgba(90,200,250,0.22)' : 'rgba(232,234,237,0.05)'}
+            stroke={isActive ? 'rgba(26,160,182,0.5)' : 'rgba(12,19,22,0.10)'}
             strokeWidth="1"
             style={{ transition: 'stroke 0.3s' }}
           />
@@ -85,9 +85,9 @@ function AtomNav({ activeCluster, onSelect }: AtomNavProps) {
         const midWord = Math.ceil(words.length / 2);
         const line1 = words.slice(0, midWord).join(' ');
         const line2 = words.slice(midWord).join(' ');
-        const labelFill = isActive
-          ? 'rgba(90,200,250,0.95)'
-          : 'rgba(232,234,237,0.52)';
+        const labelFill = isActive ? '#fff' : 'rgba(233,235,230,0.82)';
+        const nodeFill = isActive ? '#1AA0B6' : '#0C1316';
+        const nodeStroke = isActive ? '#1AA0B6' : 'rgba(12,19,22,0.55)';
 
         return (
           <g
@@ -101,18 +101,18 @@ function AtomNav({ activeCluster, onSelect }: AtomNavProps) {
             {/* Outer ring when active */}
             {isActive && (
               <circle
-                cx={nx} cy={ny} r={NODE_R + 6}
+                cx={nx} cy={ny} r={NODE_R + 7}
                 fill="none"
-                stroke="rgba(90,200,250,0.18)"
+                stroke="rgba(26,160,182,0.25)"
                 strokeWidth="1"
                 style={{ transition: 'opacity 0.3s' }}
               />
             )}
             <circle
               cx={nx} cy={ny} r={NODE_R}
-              fill={isActive ? 'rgba(90,200,250,0.10)' : 'rgba(12,14,18,0.92)'}
-              stroke={isActive ? 'rgba(90,200,250,0.65)' : 'rgba(232,234,237,0.18)'}
-              strokeWidth={isActive ? 1.5 : 1}
+              fill={nodeFill}
+              stroke={nodeStroke}
+              strokeWidth={isActive ? 2 : 1}
               style={{ transition: 'all 0.3s' }}
             />
             {/* Index number */}
@@ -121,7 +121,7 @@ function AtomNav({ activeCluster, onSelect }: AtomNavProps) {
               textAnchor="middle"
               fontFamily="JetBrains Mono, monospace"
               fontSize={8}
-              fill={isActive ? 'rgba(90,200,250,0.7)' : 'rgba(232,234,237,0.28)'}
+              fill={isActive ? 'rgba(255,255,255,0.55)' : 'rgba(233,235,230,0.4)'}
               style={{ userSelect: 'none', transition: 'fill 0.3s', letterSpacing: '0.1em' }}
             >
               {String(c.id).padStart(2, '0')}
@@ -158,8 +158,8 @@ function AtomNav({ activeCluster, onSelect }: AtomNavProps) {
       <circle
         cx={CX} cy={CY} r={52}
         fill="url(#afe-nucleus-fill)"
-        stroke="rgba(232,234,237,0.16)"
-        strokeWidth="1"
+        stroke="rgba(26,160,182,0.4)"
+        strokeWidth="1.5"
       />
       <text
         x={CX} y={CY - 7}
@@ -167,7 +167,7 @@ function AtomNav({ activeCluster, onSelect }: AtomNavProps) {
         fontFamily="JetBrains Mono, monospace"
         fontSize={10}
         fontWeight="500"
-        fill="rgba(232,234,237,0.75)"
+        fill="rgba(233,235,230,0.85)"
         style={{ userSelect: 'none', letterSpacing: '0.06em' }}
       >
         atm_0191

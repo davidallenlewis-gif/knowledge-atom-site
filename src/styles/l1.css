@@ -165,31 +165,30 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
-   AtomFieldExplorer — unified atom nav + field panel (dark surface)
+   AtomFieldExplorer — unified atom nav + field panel (light surface)
    ───────────────────────────────────────────────────────────── */
 .afe-wrap {
-  background: var(--ink);
-  border: 1px solid var(--rule-2);
-  color: var(--paper-txt);
+  background: transparent;
+  color: var(--txt);
   margin: 0 0 80px;
-  padding: 32px 36px 40px;
+  padding: 0;
 }
 
 .afe-toggle-row {
   display: flex; justify-content: flex-end; gap: 0;
   margin-bottom: 32px;
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid var(--line-strong);
   padding-bottom: 20px;
 }
 .afe-toggle-btn {
   font-family: var(--mono); font-size: 11.5px; letter-spacing: .06em;
-  padding: 8px 18px; background: transparent; color: var(--paper-dim);
-  border: 1px solid var(--rule-2); cursor: pointer;
+  padding: 8px 18px; background: var(--paper-2); color: var(--txt-dim);
+  border: 1px solid var(--line-strong); cursor: pointer;
   transition: background .2s, color .2s, border-color .2s;
 }
 .afe-toggle-btn:first-child { border-radius: 3px 0 0 3px; border-right: none; }
 .afe-toggle-btn:last-child  { border-radius: 0 3px 3px 0; }
-.afe-toggle-btn.active { background: var(--signal); color: #04282e; font-weight: 500; border-color: var(--signal); }
+.afe-toggle-btn.active { background: var(--cyan); color: #04282e; font-weight: 500; border-color: var(--cyan); }
 
 .afe-body {
   display: grid;
@@ -206,7 +205,7 @@
 .afe-nav { display: flex; flex-direction: column; align-items: center; gap: 10px; }
 .afe-hint {
   font-family: var(--mono); font-size: 9px; letter-spacing: .2em;
-  text-transform: uppercase; color: var(--paper-fade);
+  text-transform: uppercase; color: var(--txt-dim);
   text-align: center;
 }
 
@@ -221,23 +220,23 @@
 .afe-cluster-head {
   display: flex; align-items: flex-start; gap: 14px;
   padding-bottom: 20px;
-  border-bottom: 1px solid var(--rule-2);
+  border-bottom: 1px solid var(--line-strong);
   margin-bottom: 4px;
 }
 .afe-cidx {
   font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
-  color: var(--signal); border: 1px solid var(--signal-b);
-  background: var(--signal-faint);
+  color: var(--cyan-deep); border: 1px solid var(--cyan-deep);
+  background: transparent;
   padding: 4px 9px; border-radius: 2px; flex-shrink: 0; margin-top: 3px;
 }
 .afe-cluster-title-wrap { display: flex; flex-direction: column; gap: 3px; }
 .afe-cluster-title {
   font-family: var(--serif); font-size: clamp(20px, 2.4vw, 26px);
-  font-weight: 500; color: var(--paper-txt); letter-spacing: -.01em; line-height: 1.1;
+  font-weight: 500; color: var(--txt); letter-spacing: -.01em; line-height: 1.1;
 }
 .afe-cluster-sub {
   font-family: var(--mono); font-size: 11px; letter-spacing: .06em;
-  color: var(--paper-fade);
+  color: var(--txt-dim);
 }
 
 /* Field rows */
@@ -248,7 +247,7 @@
   gap: 16px 20px;
   align-items: start;
   padding: 16px 0;
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid var(--line);
 }
 .afe-field:last-child { border-bottom: none; }
 @media (max-width: 720px) {
@@ -256,17 +255,17 @@
 }
 
 .afe-field-name {
-  font-family: var(--mono); font-size: 12px; color: var(--signal);
+  font-family: var(--mono); font-size: 12px; color: var(--cyan-deep);
   letter-spacing: .03em; line-height: 1.4;
 }
 .afe-field-value {
-  font-family: var(--mono); font-size: 11.5px; color: var(--paper-txt);
+  font-family: var(--mono); font-size: 11.5px; color: var(--txt);
   line-height: 1.55; word-break: break-word;
-  background: var(--ink-2); border: 1px solid var(--rule);
+  background: var(--paper-2); border: 1px solid var(--line-strong);
   padding: 8px 10px; border-radius: 2px;
 }
 .afe-field-gloss {
-  font-size: 13px; color: var(--paper-dim); line-height: 1.55;
+  font-size: 13px; color: var(--txt-dim); line-height: 1.55;
 }
 
 /* ─────────────────────────────────────────────────────────────

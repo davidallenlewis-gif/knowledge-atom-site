@@ -180,8 +180,104 @@ h2.head {
 }
 
 /* ---------- Act 3: the duet ---------- */
-.act-3 { background: var(--paper-2); }
+.act-3 { background: var(--ink); color: var(--paper-txt); }
+.act-3 .act-no { color: var(--paper-txt-dim); }
+.act-3 h2.head { color: var(--paper-txt); }
+.act-3 .lede { color: var(--paper-txt-dim); }
 
+/* duet2 — two-column dramatic split */
+.duet2 { margin-top: 54px; }
+
+.duet2-cols {
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  gap: 0; margin-bottom: 0;
+}
+
+.duet2-col {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 32px 36px; border: none; text-align: left; cursor: pointer;
+  transition: background .3s, opacity .3s;
+  position: relative;
+}
+.duet2-col-ai {
+  background: var(--ink-2); opacity: 0.45;
+}
+.duet2-col-hu {
+  background: var(--ink-3); opacity: 0.45;
+}
+.duet2-col.active { opacity: 1; }
+.duet2-col-ai.active { background: var(--blueprint); }
+.duet2-col-hu.active { background: var(--ink-3); border-left: 2px solid var(--cyan); }
+
+.duet2-col-pct {
+  font-family: var(--serif); font-size: clamp(32px, 5vw, 52px);
+  font-weight: 500; color: var(--paper-txt); letter-spacing: -.02em; line-height: 1;
+}
+.duet2-col-label {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--paper-txt-dim);
+}
+.duet2-col-bar {
+  height: 3px; background: rgba(233,235,230,.08); border-radius: 2px; margin-top: 6px;
+}
+.duet2-bar-fill {
+  height: 100%; border-radius: 2px;
+  background: var(--cyan);
+}
+.duet2-col-ai .duet2-bar-fill { background: rgba(90,200,250,0.6); }
+.duet2-col-hu .duet2-bar-fill { background: var(--cyan); }
+
+.duet2-divider {
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 12px; background: var(--ink-1);
+}
+.duet2-divider-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--paper-fade);
+}
+
+/* Panel below */
+.duet2-panel {
+  padding: 36px 36px 32px;
+  animation: pane-in .25s cubic-bezier(.22,1,.36,1) both;
+  border-top: 1px solid rgba(233,235,230,.06);
+}
+.duet2-panel-ai { background: var(--ink-2); }
+.duet2-panel-hu { background: var(--ink-3); }
+
+.duet2-badge {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--cyan); margin-bottom: 12px;
+}
+.duet2-title {
+  font-family: var(--serif); font-weight: 500; font-size: clamp(20px, 2.6vw, 28px);
+  color: var(--paper-txt); margin: 0 0 20px; line-height: 1.2; letter-spacing: -.01em;
+}
+.duet2-list {
+  list-style: none; display: grid; gap: 10px; margin: 0 0 24px; padding: 0;
+  max-width: 600px;
+}
+.duet2-list li {
+  font-size: 15px; padding-left: 22px; position: relative; color: var(--paper-txt);
+  line-height: 1.5;
+}
+.duet2-list li::before {
+  content: ""; position: absolute; left: 0; top: 10px;
+  width: 10px; height: 1px; background: var(--cyan);
+}
+.duet2-foot {
+  font-size: 13.5px; color: var(--paper-txt-dim); font-style: italic;
+  border-top: 1px solid var(--rule); padding-top: 18px; max-width: 520px;
+}
+
+@media (max-width: 640px) {
+  .duet2-cols { grid-template-columns: 1fr; }
+  .duet2-divider { display: none; }
+  .duet2-col { padding: 22px 22px; }
+  .duet2-panel { padding: 24px 22px; }
+}
+
+/* old duet styles kept for reference, unused */
 .duet-static {
   margin-top: 56px; border: 1px solid var(--line-strong); border-radius: 5px; overflow: hidden;
 }
@@ -386,3 +482,20 @@ h2.head {
 .augment-stat .t { font-size: 14.5px; color: var(--txt-dim); margin-top: 4px; }
 .augment-stat .src { font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em; color: var(--txt-dim); margin-top: 8px; opacity: .8; }
 .augment-stat { border-left: 2px solid var(--cyan-deep); padding-left: 18px; }
+
+/* override for dark Act 3 surface */
+.act-3 .augment-stat { border-left-color: var(--cyan); }
+.act-3 .augment-stat .n { color: var(--paper-txt); }
+.act-3 .augment-stat .t { color: var(--paper-txt-dim); }
+.act-3 .augment-stat .src { color: var(--paper-txt-dim); }
+
+/* lead-in bridge before GoDeeperDoor in Act 3 */
+.act3-bridge {
+  margin-top: 48px; padding-top: 36px;
+  border-top: 1px solid var(--rule-2);
+}
+.act3-bridge-text {
+  font-family: var(--serif); font-style: italic;
+  font-size: clamp(17px, 2vw, 21px); color: var(--paper-txt-dim);
+  max-width: 46ch; line-height: 1.5; margin-bottom: 20px;
+}
