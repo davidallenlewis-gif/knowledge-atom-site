@@ -1,0 +1,363 @@
+/* TwoAgents diagram — shared between L0 explainer and L4 system page. */
+
+.diagram-frame {
+  position: relative;
+  margin: 0;
+  border: 1px solid var(--rule-2);
+  background: var(--ink);
+}
+.frame-label {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--signal);
+  padding: 4px 10px 4px 12px;
+}
+.frame-coord {
+  position: absolute;
+  top: -9px;
+  right: 24px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: var(--paper-fade);
+  background: var(--ink);
+  padding: 0 8px;
+}
+.frame-foot {
+  position: absolute;
+  bottom: -9px;
+  left: 24px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: var(--paper-fade);
+  background: var(--ink);
+  padding: 0 8px;
+}
+.frame-foot-r {
+  position: absolute;
+  bottom: -9px;
+  right: 24px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: var(--paper-fade);
+  background: var(--ink);
+  padding: 0 8px;
+}
+.wire {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  position: relative;
+  min-height: 720px;
+}
+.wire-col {
+  padding: 48px 36px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+.wire-col.center {
+  border-left: 1px dashed var(--rule);
+  border-right: 1px dashed var(--rule);
+  background: radial-gradient(ellipse at center, var(--signal-faint) 0%, transparent 70%);
+}
+.role-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--rule-2);
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
+}
+.role-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--signal);
+  font-variation-settings: "opsz" 144;
+}
+.role-meta { display: flex; flex-direction: column; gap: 2px; }
+.role-eyebrow {
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--paper-fade);
+}
+.role-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--paper);
+}
+.pins {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: relative;
+  z-index: 1;
+}
+.pin {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+.pin-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--signal);
+  border: 1px solid var(--signal-b);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ink);
+  flex-shrink: 0;
+}
+.pin-body { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.pin-key {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--paper-fade);
+}
+.pin-val { font-size: 15px; line-height: 1.55; color: var(--paper); }
+.pin-val .mono-tag {
+  font-family: var(--mono);
+  font-size: 12px;
+  background: var(--ink-3);
+  border: 1px solid var(--rule);
+  padding: 1px 5px;
+  border-radius: 2px;
+  color: var(--signal);
+}
+.pin-aux {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--paper-fade);
+  letter-spacing: 0.04em;
+}
+
+.atom-card {
+  border: 1px solid var(--signal-b);
+  background: var(--ink-2);
+  position: relative;
+  z-index: 1;
+}
+.atom-card-head {
+  border-bottom: 1px solid var(--signal-d);
+  padding: 14px 18px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--signal-faint);
+}
+.atom-card-id {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--signal);
+  font-weight: 600;
+}
+.atom-card-status {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--signal);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.atom-card-status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signal);
+  box-shadow: 0 0 0 3px var(--signal-d);
+}
+.atom-card-body { padding: 14px 18px 16px; }
+.atom-row {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 12px;
+  padding: 6px 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  border-bottom: 1px dashed var(--rule);
+}
+.atom-row:last-child { border-bottom: none; }
+.atom-row .k { color: var(--paper-fade); letter-spacing: 0.06em; }
+.atom-row .v { color: var(--paper); }
+.atom-row .v.signal { color: var(--signal); }
+.atom-knowledge-block {
+  border: 1px solid var(--rule);
+  background: var(--ink-3);
+  padding: 14px 16px;
+  margin-top: 14px;
+  font-family: var(--serif);
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--paper);
+  position: relative;
+}
+.atom-knowledge-block::before {
+  content: 'knowledge_text · canonical source';
+  position: absolute;
+  top: -9px;
+  left: 14px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: var(--ink-2);
+  padding: 0 8px;
+  color: var(--paper-fade);
+}
+.atom-knowledge-block em { font-style: italic; color: var(--paper-dim); }
+.atom-foot {
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: var(--ink-3);
+  border: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--paper-dim);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: 0.04em;
+  position: relative;
+  z-index: 1;
+}
+.atom-foot .lock { color: var(--signal); }
+
+.sod {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-top: 1px solid var(--rule-2);
+}
+.sod-cell {
+  padding: 22px 28px;
+  border-right: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sod-cell:last-child { border-right: none; }
+.sod-key {
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--paper-fade);
+}
+.sod-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.sod-row .yes { color: var(--signal); }
+.sod-row .yes::before { content: '\2713 '; font-weight: 600; }
+.sod-row .no {
+  color: var(--paper-fade);
+  text-decoration: line-through;
+  text-decoration-color: var(--rule-3);
+}
+.sod-row .no::before {
+  content: '\2717 ';
+  color: var(--warn);
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 1px;
+}
+.sod-cell .sod-title {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--paper);
+  font-style: normal;
+}
+
+/* Chain of integrity — L4 only, hidden on L0 via hideChain prop */
+.chain {
+  margin-top: 32px;
+  padding: 28px 32px;
+  border: 1px solid var(--rule-2);
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 32px;
+}
+.chain-l {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-right: 1px dashed var(--rule);
+  padding-right: 24px;
+}
+.chain-l-num {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 64px;
+  line-height: 0.9;
+  color: var(--amber);
+  font-variation-settings: "opsz" 144;
+  letter-spacing: -0.04em;
+}
+.chain-l-title {
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--paper);
+}
+.chain-l-eye {
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--paper-fade);
+  margin-top: 8px;
+}
+.chain-r { display: flex; flex-direction: column; gap: 14px; }
+.chain-step {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--rule);
+}
+.chain-step:last-child { border-bottom: none; }
+.chain-step-id {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--signal);
+  letter-spacing: 0.06em;
+}
+.chain-step-body { font-size: 14px; line-height: 1.5; color: var(--paper); }
+.chain-step-body .small {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--paper-fade);
+  margin-top: 4px;
+  letter-spacing: 0.04em;
+}
+.chain-step-body strong { color: var(--signal); font-weight: 600; }

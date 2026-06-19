@@ -1,4 +1,5 @@
 /* L0 — Explainer page styles */
+@import './diagram.css';
 /* Tokens are loaded globally via tokens.css. This file handles all L0-specific layout and components. */
 
 .mono { font-family: var(--mono); }
@@ -377,6 +378,7 @@ h2.head {
 .act-5 {
   background: var(--ink-2); color: var(--paper-txt);
 }
+.act-5 .diagram-frame { margin-top: 52px; }
 .act-5 .act-no { color: var(--paper-txt-dim); }
 .act-5 h2.head { color: var(--paper-txt); }
 .act-5 h2.head em { color: var(--cyan); }
@@ -386,105 +388,6 @@ h2.head {
   background-image: linear-gradient(var(--line-light) 1px, transparent 1px), linear-gradient(90deg, var(--line-light) 1px, transparent 1px);
 }
 
-.a5-diagram {
-  display: grid;
-  grid-template-columns: 1fr 220px 1fr;
-  gap: 0;
-  margin-top: 56px;
-  border: 1px solid var(--rule-2);
-}
-@media (max-width: 800px) {
-  .a5-diagram { grid-template-columns: 1fr; }
-  .a5-center { border-left: none; border-top: 1px solid var(--rule-2); border-bottom: 1px solid var(--rule-2); }
-}
-
-.a5-col {
-  padding: 32px 28px 36px;
-}
-.a5-col-qa { border-right: 1px solid var(--rule-2); }
-.a5-col-learn { border-left: 1px solid var(--rule-2); }
-
-.a5-agent-tag {
-  font-family: var(--mono); font-size: 10px; letter-spacing: .18em;
-  text-transform: uppercase; color: var(--signal);
-  margin-bottom: 14px;
-}
-.a5-agent-tag-amber { color: var(--amber); }
-
-.a5-agent-title {
-  font-family: var(--serif); font-size: clamp(18px, 2vw, 22px);
-  font-weight: 500; color: var(--paper-txt); line-height: 1.2;
-  margin-bottom: 20px; letter-spacing: -.01em;
-}
-
-.a5-list {
-  list-style: none; padding: 0; margin: 0 0 20px; display: grid; gap: 9px;
-}
-.a5-list li {
-  font-size: 14px; color: var(--paper-dim); line-height: 1.5;
-  padding-left: 18px; position: relative;
-}
-.a5-list li::before {
-  content: ""; position: absolute; left: 0; top: 9px;
-  width: 8px; height: 1px; background: var(--signal);
-}
-.a5-col-learn .a5-list li::before { background: var(--amber); }
-.a5-list li code {
-  font-family: var(--mono); font-size: 11px; color: var(--signal);
-  background: var(--signal-faint); padding: 1px 5px; border-radius: 2px;
-}
-.a5-col-learn .a5-list li code { color: var(--amber); background: var(--amber-d); }
-
-.a5-constraint {
-  font-family: var(--mono); font-size: 10.5px; letter-spacing: .04em;
-  color: var(--paper-fade); border-top: 1px solid var(--rule);
-  padding-top: 14px; line-height: 1.5;
-}
-.a5-constraint code {
-  color: var(--signal); background: var(--signal-faint);
-  padding: 1px 5px; border-radius: 2px;
-}
-.a5-col-learn .a5-constraint code { color: var(--amber); background: var(--amber-d); }
-
-/* Center atom card */
-.a5-center {
-  display: flex; flex-direction: column; align-items: center;
-  justify-content: center; padding: 28px 16px; gap: 16px;
-  background: var(--ink-1);
-}
-.a5-atom-card {
-  width: 100%;
-  border: 1px solid var(--signal-b); background: var(--ink-2);
-  padding: 14px 14px 12px;
-}
-.a5-atom-id {
-  font-family: var(--mono); font-size: 11px; font-weight: 600;
-  color: var(--signal); letter-spacing: .06em;
-}
-.a5-atom-status {
-  font-family: var(--mono); font-size: 9px; letter-spacing: .14em;
-  text-transform: uppercase; color: var(--signal);
-  background: var(--signal-faint); border: 1px solid var(--signal-b);
-  display: inline-block; padding: 2px 7px; margin-top: 4px; border-radius: 2px;
-}
-.a5-atom-rule { height: 1px; background: var(--rule-2); margin: 10px 0; }
-.a5-atom-line {
-  display: flex; justify-content: space-between; align-items: center;
-  font-family: var(--mono); font-size: 10px; color: var(--paper-dim);
-  padding: 3px 0; letter-spacing: .04em;
-}
-.a5-k { color: var(--paper-fade); }
-.a5-arrow { color: var(--signal); }
-.a5-atom-constraint {
-  font-family: var(--serif); font-style: italic; font-size: 12px;
-  color: var(--paper-fade); text-align: center; margin-top: 6px;
-  line-height: 1.4;
-}
-.a5-center-arrows {
-  display: flex; justify-content: space-between; width: 100%;
-  font-family: var(--mono); font-size: 11px; color: var(--rule-3);
-  letter-spacing: .1em;
-}
 
 /* ---------- footer ---------- */
 .site-footer {

@@ -18,7 +18,7 @@ const amberPinNum: CSSProperties = {
 
 const presentationForms = ['scenario · interactive', 'video · 4:00', 'job_aid · printable'];
 
-export default function TwoAgents() {
+export default function TwoAgents({ hideChain = false }: { hideChain?: boolean }) {
   return (
     <div className="diagram-frame">
       <span className="frame-label">FIG.04 · Two-agent diagram</span>
@@ -309,7 +309,7 @@ export default function TwoAgents() {
       </div>
 
       {/* Chain of integrity */}
-      <section className="chain">
+      {!hideChain && <section className="chain">
         <div className="chain-l">
           <div className="chain-l-num">⌗</div>
           <div className="chain-l-title">
@@ -350,7 +350,7 @@ export default function TwoAgents() {
             </div>
           </div>
         </div>
-      </section>
+      </section>}
     </div>
   );
 }
