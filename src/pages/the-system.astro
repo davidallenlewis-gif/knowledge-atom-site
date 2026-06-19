@@ -1,36 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BackToExplainer from '../components/BackToExplainer.astro';
-import TwoAgents from '../components/TwoAgents.tsx';
 import DeliveryStrip from '../components/DeliveryStrip.tsx';
 import '../styles/l4.css';
 ---
 <BaseLayout title="The System — The Knowledge Atom" layer="L4">
   <div class="l4-page">
-
-    <header class="sec-head wrap">
-      <div class="sec-head-l">
-        <BackToExplainer />
-        <div class="sec-eyebrow">Layer 04 — System</div>
-        <div class="sec-num">04.</div>
-      </div>
-      <div class="sec-head-r">
-        <h1 class="serif sec-title">Two agents.<br/><em>One atom.</em></h1>
-        <p class="sec-deck">The builder writes. The Q&amp;A agent reads. Neither can do the other's job. The atom is the contract between them.</p>
-      </div>
-    </header>
-
-    <!-- Wiring diagram -->
-    <div class="wrap wrap-wide">
-      <TwoAgents client:visible />
-    </div>
-
-    <!-- Transition beat -->
-    <div class="wrap system-transition">
-      <p class="transition-label mono">Here's what it looks like when it runs.</p>
-      <h2 class="serif transition-head">From assignment<br/><em>to learned skill.</em></h2>
-      <p class="transition-deck">The learner didn't ask for this training. The learning agent explains why they got it — tracing the assignment back to real performance data. One atom at a time.</p>
-    </div>
 
     <!-- Delivery scroll-jack -->
     <DeliveryStrip client:load />
