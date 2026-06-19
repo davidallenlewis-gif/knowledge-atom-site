@@ -189,7 +189,7 @@ h2.head {
 .duet2 { margin-top: 54px; }
 
 .duet2-cols {
-  display: grid; grid-template-columns: 1fr auto 1fr;
+  display: grid; grid-template-columns: 7fr auto 3fr;
   gap: 0; margin-bottom: 0;
 }
 
