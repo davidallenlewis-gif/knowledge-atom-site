@@ -4,6 +4,7 @@ import GoDeeperDoor from '../components/GoDeeperDoor.astro';
 import CollapseRadiate from '../components/CollapseRadiate.tsx';
 import WhoDoesWhat from '../components/WhoDoesWhat.tsx';
 import FormatSwitcher from '../components/FormatSwitcher.tsx';
+import ClusterTabs from '../components/ClusterTabs.tsx';
 import '../styles/l0.css';
 ---
 <BaseLayout title="The Knowledge Atom" layer="L0">
@@ -54,70 +55,9 @@ import '../styles/l0.css';
           </div>
         </aside>
 
-        <!-- Cluster accordions -->
+        <!-- Cluster tabs (React island) -->
         <div class="clusters">
-          <p style="color:var(--txt-dim);font-size:14px;margin-bottom:4px">Underneath, every atom carries 19 fields. For a decision-maker they group into four plain questions. <b style="color:var(--txt)">Open one.</b></p>
-
-          <details class="cluster" open>
-            <summary>
-              <span class="cidx">01</span>
-              <span class="ctitle">What it teaches<span class="csub">The verified idea, in its own words</span></span>
-              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
-            </summary>
-            <div class="cfields">
-              <div class="field"><div class="fk">learning_objective</div><div class="fv">Route any issue to the right tier without over-escalating.</div></div>
-              <div class="field"><div class="fk">key_concept</div><div class="fv">The deciding question: "does fixing this need authority I lack?"</div></div>
-              <div class="field"><div class="fk">misconception</div><div class="fv">"An upset customer means high severity." / "When in doubt, escalate."</div></div>
-              <div class="field"><div class="fk">tiers</div><div class="fv">Critical · High · Standard · Low — four, mutually exclusive.</div></div>
-            </div>
-            <div class="cnote">This is the only field a human must truly own. Everything else can be derived from it.</div>
-          </details>
-
-          <details class="cluster">
-            <summary>
-              <span class="cidx">02</span>
-              <span class="ctitle">How we know it's right<span class="csub">Versioned, sourced, auditable</span></span>
-              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
-            </summary>
-            <div class="cfields">
-              <div class="field"><div class="fk">version / hash</div><div class="fv">v4 · 9f2a·c41e — a fingerprint of the exact knowledge.</div></div>
-              <div class="field"><div class="fk">source_citation</div><div class="fv">CFPB Regulation E (electronic-fund-transfer disputes).</div></div>
-              <div class="field"><div class="fk">status</div><div class="fv">SME-verified, published.</div></div>
-              <div class="field"><div class="fk">reassessment</div><div class="fv">Flags every derived view stale the moment the text changes.</div></div>
-            </div>
-            <div class="cnote">Change the knowledge once; the hash moves; every view that drifted is caught automatically.</div>
-          </details>
-
-          <details class="cluster">
-            <summary>
-              <span class="cidx">03</span>
-              <span class="ctitle">What capability it builds<span class="csub">Tied to a real, measurable skill</span></span>
-              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
-            </summary>
-            <div class="cfields">
-              <div class="field"><div class="fk">skill</div><div class="fv">Escalation Severity Judgment.</div></div>
-              <div class="field"><div class="fk">target_proficiency</div><div class="fv">Apply — classify live, unaided.</div></div>
-              <div class="field"><div class="fk">assessment</div><div class="fv">Judge unlabeled cases, not recall of the tiers.</div></div>
-              <div class="field"><div class="fk">mastery_threshold</div><div class="fv">90% correct routing across mixed scenarios.</div></div>
-            </div>
-            <div class="cnote">An atom isn't "done" because it was watched — it's done when the behavior shows up.</div>
-          </details>
-
-          <details class="cluster">
-            <summary>
-              <span class="cidx">04</span>
-              <span class="ctitle">How it reaches people<span class="csub">Many forms, one source</span></span>
-              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
-            </summary>
-            <div class="cfields">
-              <div class="field"><div class="fk">presentation_objects</div><div class="fv">Q&amp;A answer · scenario · job aid · microlearning.</div></div>
-              <div class="field"><div class="fk">prerequisite</div><div class="fv">Account types &amp; access levels.</div></div>
-              <div class="field"><div class="fk">role_relevance</div><div class="fv">Tier-1 contact-center representative.</div></div>
-              <div class="field"><div class="fk">difficulty</div><div class="fv">Foundational.</div></div>
-            </div>
-            <div class="cnote">These are views, not copies. Act 04 shows the atom render itself into each one →</div>
-          </details>
-
+          <ClusterTabs client:visible />
           <GoDeeperDoor href="/anatomy" layer="L1" label="Explore all 19 fields in the Anatomy" />
         </div>
       </div>

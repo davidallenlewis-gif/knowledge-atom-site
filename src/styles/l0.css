@@ -94,11 +94,10 @@ h2.head {
 .stat .src { font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em; color: var(--txt-dim); margin-top: 8px; opacity: .8; }
 
 /* ---------- Act 2: specimen + clusters ---------- */
-.split { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; margin-top: 64px; align-items: start; }
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 64px; align-items: start; }
 @media (max-width: 860px) { .split { grid-template-columns: 1fr; gap: 40px; } }
 
 .specimen {
-  position: sticky; top: 96px;
   border: 1px solid var(--line-strong); background: var(--paper-2);
   padding: 26px; border-radius: 4px;
 }
@@ -119,34 +118,61 @@ h2.head {
   text-transform: uppercase; color: var(--cyan-deep); display: block; margin-bottom: 7px;
 }
 
-.clusters { display: flex; flex-direction: column; gap: 12px; }
-.cluster {
-  border: 1px solid var(--line-strong); border-radius: 4px; background: var(--paper-2);
-  overflow: hidden; transition: border-color .3s;
+.clusters { display: flex; flex-direction: column; }
+
+/* ---------- ClusterTabs component ---------- */
+.cluster-tabs { display: flex; flex-direction: column; }
+.cluster-tabs-intro { font-size: 14px; color: var(--txt-dim); margin: 0 0 16px; line-height: 1.5; }
+
+.ctab-bar {
+  display: flex; gap: 0; border: 1px solid var(--line-strong);
+  border-radius: 4px 4px 0 0; overflow: hidden;
 }
-.cluster:hover { border-color: var(--cyan-deep); }
-.cluster summary {
-  list-style: none; cursor: pointer; padding: 20px 22px;
-  display: flex; align-items: center; gap: 16px;
+.ctab {
+  flex: 1; display: flex; flex-direction: column; align-items: flex-start;
+  padding: 13px 14px; background: var(--paper-2); border: none;
+  border-right: 1px solid var(--line-strong); cursor: pointer;
+  transition: background .15s, color .15s;
+  border-bottom: 2px solid transparent;
 }
-.cluster summary::-webkit-details-marker { display: none; }
-.cluster .cidx {
-  font-family: var(--mono); font-size: 11px; color: var(--cyan-deep);
-  border: 1px solid var(--cyan-deep); border-radius: 3px; padding: 3px 7px; flex-shrink: 0;
+.ctab:last-child { border-right: none; }
+.ctab-idx {
+  font-family: var(--mono); font-size: 10px; color: var(--cyan-deep);
+  letter-spacing: .12em; display: block; margin-bottom: 4px;
 }
-.cluster .ctitle { font-family: var(--serif); font-size: 21px; font-weight: 500; flex: 1; letter-spacing: -.01em; }
-.cluster .csub { font-size: 13.5px; color: var(--txt-dim); display: block; margin-top: 2px; font-family: var(--sans); }
-.cluster .chev { width: 18px; height: 18px; flex-shrink: 0; transition: transform .3s; color: var(--txt-dim); }
-.cluster[open] .chev { transform: rotate(45deg); }
-.cfields {
-  padding: 0 22px 22px 22px; display: grid; grid-template-columns: 1fr 1fr;
-  gap: 1px; background: var(--line); border-top: 1px solid var(--line);
+.ctab-label {
+  font-family: var(--sans); font-size: 12.5px; color: var(--txt-dim);
+  line-height: 1.25; text-align: left;
 }
-@media (max-width: 560px) { .cfields { grid-template-columns: 1fr; } }
-.field { background: var(--paper-2); padding: 13px 4px 13px 0; }
-.field .fk { font-family: var(--mono); font-size: 11px; color: var(--cyan-deep); letter-spacing: .02em; }
-.field .fv { font-size: 13.5px; color: var(--txt); margin-top: 3px; line-height: 1.45; }
-.cnote { padding: 14px 22px 20px; font-size: 13px; color: var(--txt-dim); border-top: 1px solid var(--line); font-style: italic; }
+.ctab-active {
+  background: var(--paper); border-bottom-color: var(--cyan);
+}
+.ctab-active .ctab-idx { color: var(--cyan-deep); }
+.ctab-active .ctab-label { color: var(--txt); font-weight: 500; }
+
+.ctab-panel {
+  border: 1px solid var(--line-strong); border-top: none;
+  border-radius: 0 0 4px 4px; background: var(--paper-2);
+  padding: 22px; min-height: 230px;
+  animation: pane-in .2s ease both;
+}
+.ctab-panel-head {
+  display: flex; align-items: baseline; gap: 10px; margin-bottom: 16px;
+  padding-bottom: 14px; border-bottom: 1px solid var(--line);
+}
+.ctab-panel-title { font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--txt); }
+.ctab-panel-sub { font-size: 13px; color: var(--txt-dim); }
+
+.ctab-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); }
+@media (max-width: 560px) { .ctab-fields { grid-template-columns: 1fr; } }
+.ctab-field { background: var(--paper-2); padding: 11px 10px 11px 0; }
+.ctab-fk { font-family: var(--mono); font-size: 10.5px; color: var(--cyan-deep); letter-spacing: .04em; }
+.ctab-fv { font-size: 13.5px; color: var(--txt); margin-top: 3px; line-height: 1.45; }
+
+.ctab-note {
+  margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line);
+  font-size: 13px; color: var(--txt-dim); font-style: italic; line-height: 1.5;
+}
 
 .pill {
   display: inline-block; font-family: var(--mono); font-size: 11px; letter-spacing: .04em;
