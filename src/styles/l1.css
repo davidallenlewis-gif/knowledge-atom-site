@@ -165,6 +165,111 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
+   AtomFieldExplorer — unified atom nav + field panel (dark surface)
+   ───────────────────────────────────────────────────────────── */
+.afe-wrap {
+  background: var(--ink);
+  border: 1px solid var(--rule-2);
+  color: var(--paper-txt);
+  margin: 0 0 80px;
+  padding: 32px 36px 40px;
+}
+
+.afe-toggle-row {
+  display: flex; justify-content: flex-end; gap: 0;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 20px;
+}
+.afe-toggle-btn {
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: .06em;
+  padding: 8px 18px; background: transparent; color: var(--paper-dim);
+  border: 1px solid var(--rule-2); cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.afe-toggle-btn:first-child { border-radius: 3px 0 0 3px; border-right: none; }
+.afe-toggle-btn:last-child  { border-radius: 0 3px 3px 0; }
+.afe-toggle-btn.active { background: var(--signal); color: #04282e; font-weight: 500; border-color: var(--signal); }
+
+.afe-body {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+@media (max-width: 860px) {
+  .afe-body { grid-template-columns: 1fr; gap: 32px; }
+  .afe-wrap { padding: 24px 20px 32px; }
+}
+
+/* Left — atom nav */
+.afe-nav { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.afe-hint {
+  font-family: var(--mono); font-size: 9px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--paper-fade);
+  text-align: center;
+}
+
+/* Right — panel */
+.afe-panel-wrap { min-height: 520px; }
+.afe-panel { animation: afe-in .25s cubic-bezier(.22,1,.36,1) both; }
+@keyframes afe-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.afe-cluster-head {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--rule-2);
+  margin-bottom: 4px;
+}
+.afe-cidx {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+  color: var(--signal); border: 1px solid var(--signal-b);
+  background: var(--signal-faint);
+  padding: 4px 9px; border-radius: 2px; flex-shrink: 0; margin-top: 3px;
+}
+.afe-cluster-title-wrap { display: flex; flex-direction: column; gap: 3px; }
+.afe-cluster-title {
+  font-family: var(--serif); font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 500; color: var(--paper-txt); letter-spacing: -.01em; line-height: 1.1;
+}
+.afe-cluster-sub {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .06em;
+  color: var(--paper-fade);
+}
+
+/* Field rows */
+.afe-fields { display: flex; flex-direction: column; }
+.afe-field {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) minmax(140px, 1fr) 1.3fr;
+  gap: 16px 20px;
+  align-items: start;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.afe-field:last-child { border-bottom: none; }
+@media (max-width: 720px) {
+  .afe-field { grid-template-columns: 1fr; gap: 6px; }
+}
+
+.afe-field-name {
+  font-family: var(--mono); font-size: 12px; color: var(--signal);
+  letter-spacing: .03em; line-height: 1.4;
+}
+.afe-field-value {
+  font-family: var(--mono); font-size: 11.5px; color: var(--paper-txt);
+  line-height: 1.55; word-break: break-word;
+  background: var(--ink-2); border: 1px solid var(--rule);
+  padding: 8px 10px; border-radius: 2px;
+}
+.afe-field-gloss {
+  font-size: 13px; color: var(--paper-dim); line-height: 1.55;
+}
+
+/* ─────────────────────────────────────────────────────────────
    Cluster accordion + plain/technical toggle (light surface)
    ───────────────────────────────────────────────────────────── */
 .clusters-section { max-width: var(--maxw); margin: 0 auto; }
